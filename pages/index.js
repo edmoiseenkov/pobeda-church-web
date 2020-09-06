@@ -1,5 +1,9 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
+import menuStyles from '../styles/Menu.module.scss'
+import sundayService from '../styles/SundayService.module.scss'
+import Intro from '../components/Intro';
+import PostPreview from '../components/PostPreview';
 
 export default function Home() {
   return (
@@ -9,57 +13,68 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <Intro />
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+      <div className={menuStyles.menu}>
+        <ul>
+          <li>
+            <a href="#">Церковь</a>
+          </li>
+          <li>
+            <a href="#">Музыка</a>
+          </li>
+          <li>
+            <a href="#">Дети</a>
+          </li>
+          <li>
+            <a href="#">Молоджное</a>
+          </li>
+        </ul>
+      </div>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className={sundayService.sundayService}>
+        <div>
+          <h2>Воскресное служение</h2>
+          <p>в 11:00, добро пожаловать</p>
+          <button>Посмотреть на карте</button>
         </div>
-      </main>
+      </div>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <PostPreview
+          title={'Церковь'}
+          text={'Наша Главная задача — быть «смоковницей», приносящей плод. Наша цель — спасти грешников в нашем гopoде и войти в небеса, наше оружие в борьбе с дьяволом — пост, молитва и проповедь Благой Вести. Мы уповаем на нерушимое Слово Божье и готовы идти до конца в вере нашему Спасителю.'}
+          buttonText={'Читать больше'}
+          buttonLink={'#'}
+          img={'/images/church-about-preview.png'}
+      />
+
+      <PostPreview
+          title={'Музыка'}
+          text={'Наша Главная задача — быть «смоковницей», приносящей плод. Наша цель — спасти грешников в нашем гopoде и войти в небеса, наше оружие в борьбе с дьяволом — пост, молитва и проповедь Благой Вести. Мы уповаем на нерушимое Слово Божье и готовы идти до конца в вере нашему Спасителю.'}
+          buttonText={'Слушать песни'}
+          buttonLink={'#'}
+          img={'/images/music-preview.png'}
+          isReverse={true}
+          bgColor={'#F5F9F0'}
+      />
+
+      <PostPreview
+          title={'Дети'}
+          text={'Наша Главная задача — быть «смоковницей», приносящей плод. Наша цель — спасти грешников в нашем гopoде и войти в небеса, наше оружие в борьбе с дьяволом — пост, молитва и проповедь Благой Вести. Мы уповаем на нерушимое Слово Божье и готовы идти до конца в вере нашему Спасителю.'}
+          buttonText={'Читать больше'}
+          buttonLink={'#'}
+          img={'/images/children-preview.png'}
+      />
+
+      <PostPreview
+          title={'Молодежное служение'}
+          text={'Наша Главная задача — быть «смоковницей», приносящей плод. Наша цель — спасти грешников в нашем гopoде и войти в небеса, наше оружие в борьбе с дьяволом — пост, молитва и проповедь Благой Вести. Мы уповаем на нерушимое Слово Божье и готовы идти до конца в вере нашему Спасителю.'}
+          buttonText={'Читать больше'}
+          buttonLink={'#'}
+          img={'/images/youth-preview.png'}
+          isReverse={true}
+          bgColor={'#FDF4EF'}
+      />
     </div>
   )
 }

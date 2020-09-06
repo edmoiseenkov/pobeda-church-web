@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  height: 800px;
+  width: 100%;
+}
+
+.container__reversed {
+  flex-direction: row-reverse;
+}
+
+.image {
+  width: 720px;
+}
+
+.content {
+  display: flex;
+  padding: 96px;
+  width: calc(100% - 720px);
+
+  h3 {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 46px;
+    line-height: 56px;
+    letter-spacing: 0.44px;
+  }
+
+  p {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 36px;
+    letter-spacing: 0.6px;
+  }
+}
+
+.button {
+  background: #111111;
+
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  color: white;
+  border: 0;
+  display: inline-block;
+  padding: 20px 30px;
+}
