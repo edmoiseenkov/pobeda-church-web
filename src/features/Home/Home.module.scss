@@ -1,3 +1,11 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .sundayService {
   background: url('/images/sunday-service.png') center / cover;
   color: white;
@@ -45,5 +53,39 @@
     top: 1464px;
     font-weight: 500;
     font-size: 18px;
+  }
+}
+
+.menu {
+  align-items: center;
+  background: #000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  height: 280px;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 49px;
+    letter-spacing: 0.4375px;
+    margin: 0 40px;
+    text-align: center;
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    &:not(:last-child):after {
+      content: '|';
+      position: relative;
+      left: 40px;
+    }
   }
 }
