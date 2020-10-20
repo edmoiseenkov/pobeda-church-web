@@ -4,6 +4,7 @@ import Head from 'next/head';
 import styles from './Home.module.scss';
 import PageIntro from '../../shared/PageIntro/PageIntro';
 import PostPreview from '../../shared/PostPreview/PostPreview';
+import { Button, buttonVariants } from '../../shared/Button/Button';
 
 const Menu = ({ menuItems = [] }) => {
     return (
@@ -36,7 +37,7 @@ export default function Home() {
                 <div>
                     <h2>Воскресное служение</h2>
                     <p>в 11:00, добро пожаловать</p>
-                    <button>Посмотреть на карте</button>
+                    <Button variant={buttonVariants.white}>Посмотреть на карте</Button>
                 </div>
             </div>
 
@@ -64,6 +65,7 @@ export default function Home() {
                 buttonText={'Читать больше'}
                 buttonLink={'#'}
                 img={'/images/children-preview.png'}
+                buttonVariant={buttonVariants.outline}
             />
 
             <PostPreview

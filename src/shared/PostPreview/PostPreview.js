@@ -1,8 +1,9 @@
 
 import { useMemo } from 'react';
 import styles from './PostPreview.module.scss';
+import { Link } from '../Button/Button';
 
-export default function PostPreview({ title, img, text, isReverse, buttonText, buttonLink = '#', bgColor = 'white'  }) {
+export default function PostPreview({ title, img, text, isReverse, buttonText, buttonLink = '#', bgColor = 'white', buttonVariant }) {
 
     const containerClassName = useMemo(() => {
         const classes = [styles.container];
@@ -19,7 +20,7 @@ export default function PostPreview({ title, img, text, isReverse, buttonText, b
                 <div>
                     <h3>{title}</h3>
                     <p>{text}</p>
-                    <a className={styles.button} href={buttonLink}>{buttonText}</a>
+                    <Link href={buttonLink} variant={buttonVariant}>{buttonText}</Link>
                 </div>
             </div>
         </div>
