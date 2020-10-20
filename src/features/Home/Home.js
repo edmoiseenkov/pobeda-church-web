@@ -5,6 +5,7 @@ import styles from './Home.module.scss';
 import PageIntro from '../../shared/PageIntro/PageIntro';
 import PostPreview from '../../shared/PostPreview/PostPreview';
 import { Button, buttonVariants } from '../../shared/Button/Button';
+import { ReactComponent as MapIcon } from './../../assets/icons/Maps.svg';
 
 const Menu = ({ menuItems = [] }) => {
     return (
@@ -37,7 +38,10 @@ export default function Home() {
                 <div>
                     <h2>Воскресное служение</h2>
                     <p>в 11:00, добро пожаловать</p>
-                    <Button variant={buttonVariants.white}>Посмотреть на карте</Button>
+                    <Button
+                        variant={buttonVariants.white}
+                        icon={() => (<MapIcon fill={'black'} />)}
+                    >Посмотреть на карте</Button>
                 </div>
             </div>
 

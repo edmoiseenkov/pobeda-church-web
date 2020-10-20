@@ -1,7 +1,6 @@
 .base {
   border: 0;
   cursor: pointer;
-  display: inline-block;
   font-family: 'Helvetica Neue';
   font-size: 18px;
   font-style: normal;
@@ -11,6 +10,15 @@
   padding: 20px 30px;
   text-align: center;
   transition: 300ms;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+  }
 }
 
 .black {
