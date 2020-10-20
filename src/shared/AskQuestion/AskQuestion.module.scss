@@ -1,0 +1,29 @@
+
+.wrapper {
+  padding: 150px 0;
+  max-width: 830px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+
+  input {
+    border: 2px solid black;
+    flex-grow: 1;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 20px 30px;
+
+    &:focus {
+      border-radius: 0;
+      outline: none;
+    }
+  }
+
+}

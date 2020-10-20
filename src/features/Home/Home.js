@@ -6,6 +6,7 @@ import PageIntro from '../../shared/PageIntro/PageIntro';
 import PostPreview from '../../shared/PostPreview/PostPreview';
 import { Button, buttonVariants } from '../../shared/Button/Button';
 import { ReactComponent as MapIcon } from './../../assets/icons/Maps.svg';
+import { AskQuestion } from '../../shared/AskQuestion/AskQuestion';
 
 const Menu = ({ menuItems = [] }) => {
     return (
@@ -52,6 +53,8 @@ export default function Home() {
                 buttonLink={'#'}
                 img={'/images/church-about-preview.png'}
             />
+
+            <AskQuestion />
 
             <PostPreview
                 title={'Музыка'}
