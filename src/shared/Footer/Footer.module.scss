@@ -1,0 +1,150 @@
+.wrapper {
+  align-items: center;
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+  width: 100%;
+}
+
+$paddingsV: 60px;
+$paddingsH: 96px; // TODO: move to global variables
+
+.formWrapper {
+  align-items: center;
+  border-bottom: 2px solid #2B2B2B;
+  display: flex;
+  padding: $paddingsV 0;
+  width: calc(100% - #{$paddingsH * 2});
+
+  h4 {
+    color: white;
+    font-size: 22px;
+    margin: 0;
+    width: 30%;
+  }
+
+  form {
+    display: flex;
+    width: 70%;
+
+    input {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      font-size: 22px;
+      flex-grow: 1;
+      padding: 10px 30px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.menus {
+  border-bottom: 2px solid #2B2B2B;
+  display: flex;
+  padding: $paddingsV 0;
+  width: calc(100% - #{$paddingsH * 2});
+}
+
+.mainMenu {
+  font-size: 36px;
+  font-weight: 500;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: calc(100% / 3);
+
+  li {
+    margin-bottom: 16px;
+
+    a {
+      &:hover {
+        border-bottom: 4px solid white;
+      }
+    }
+  }
+}
+
+.churchLogo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: calc(100% / 3);
+
+  svg {
+    height: 145px;
+    width: 100px;
+  }
+}
+
+.subMenus {
+  display: flex;
+  width: calc(100% / 3);
+}
+
+.subMenuWrapper {
+  width: 50%;
+}
+
+.subMenuTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 32px;
+}
+
+.subMenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    font-size: 16px;
+    margin-bottom: 16px;
+
+    a {
+      &:hover {
+        border-bottom: 2px solid white;
+      }
+    }
+  }
+}
+
+.copyright {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: $paddingsV 0;
+  width: calc(100% - #{$paddingsH * 2});
+}
+
+.copyrightText {
+  color: #474747;
+}
+
+.copyrightSocials {
+  list-style: none;
+  display: flex;
+
+  li {
+    margin-left: 30px;
+
+    a {
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  svg {
+    height: 32px;
+    width: 32px;
+  }
+}

@@ -7,6 +7,7 @@ import PostPreview from '../../shared/PostPreview/PostPreview';
 import { Button, buttonVariants } from '../../shared/Button/Button';
 import { ReactComponent as MapIcon } from './../../assets/icons/Maps.svg';
 import { AskQuestion } from '../../shared/AskQuestion/AskQuestion';
+import Footer from '../../shared/Footer/Footer';
 
 const Menu = ({ menuItems = [] }) => {
     return (
@@ -27,7 +28,7 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Create Next App</title>
+                <title>Церковь "Победа" г. Днепр</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -41,7 +42,7 @@ export default function Home() {
                     <p>в 11:00, добро пожаловать</p>
                     <Button
                         variant={buttonVariants.white}
-                        icon={() => (<MapIcon fill={'black'} />)}
+                        icon={() => (<MapIcon />)}
                     >Посмотреть на карте</Button>
                 </div>
             </div>
@@ -84,6 +85,8 @@ export default function Home() {
                 isReverse={true}
                 bgColor={'#FDF4EF'}
             />
+
+            <Footer />
         </div>
     );
 };
