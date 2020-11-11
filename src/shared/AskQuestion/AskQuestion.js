@@ -14,7 +14,7 @@ export const AskQuestion = () => {
             <h2 className={styles.title}>Можете задать анонимный вопрос и мы ответив вам в ближайшее время.</h2>
 
             <form className={styles.form} onSubmit={handleSubmit}>
-                <input type="text" placeholder={'Ваш вопрос напишите тут'} />
+                <input type="email" placeholder={'Ваш вопрос напишите тут'} />
                 <Button type={'submit'}>Отправить</Button>
             </form>
         </div>

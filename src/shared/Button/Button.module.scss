@@ -1,7 +1,6 @@
 .base {
   border: 0;
   cursor: pointer;
-  font-family: 'Helvetica Neue';
   font-size: 18px;
   font-style: normal;
   letter-spacing: 0.2px;
@@ -36,8 +35,11 @@
   color: #111111;
 
   &:hover {
-    box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.5);
+    @media (min-width: 400px) {
+      box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.5);
+    }
   }
+
 }
 
 .outline {

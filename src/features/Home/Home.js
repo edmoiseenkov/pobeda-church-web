@@ -1,15 +1,20 @@
-
-import { useMemo } from 'react';
 import Head from 'next/head';
 import styles from './Home.module.scss';
 import PageIntro from '../../shared/PageIntro/PageIntro';
 import PostPreview from '../../shared/PostPreview/PostPreview';
 import { Button, buttonVariants } from '../../shared/Button/Button';
 import { ReactComponent as MapIcon } from './../../assets/icons/Maps.svg';
-import { AskQuestion } from '../../shared/AskQuestion/AskQuestion';
+// import { AskQuestion } from '../../shared/AskQuestion/AskQuestion';
 import Footer from '../../shared/Footer/Footer';
 
-const Menu = ({ menuItems = [] }) => {
+const menuItems = [
+  { name: 'Церковь', link: '#' },
+  { name: 'Музыка', link: '#' },
+  { name: 'Дети', link: '#' },
+  { name: 'Молоджное', link: '#' },
+]
+
+const Menu = () => {
     return (
         <ul className={styles.menu}>
             {menuItems.map((item, i) => <li key={i}><a href={item.link}>{item.name}</a></li>)}
@@ -18,12 +23,6 @@ const Menu = ({ menuItems = [] }) => {
 };
 
 export default function Home() {
-    const menuItems = useMemo(() => [
-        { name: 'Церковь', link: '#' },
-        { name: 'Музыка', link: '#' },
-        { name: 'Дети', link: '#' },
-        { name: 'Молоджное', link: '#' },
-    ], []);
 
     return (
         <div className={styles.container}>
@@ -34,7 +33,7 @@ export default function Home() {
 
             <PageIntro />
 
-            <Menu menuItems={menuItems} />
+            <Menu />
 
             <div className={styles.sundayService}>
                 <div>
@@ -55,7 +54,7 @@ export default function Home() {
                 img={'/images/church-about-preview.png'}
             />
 
-            <AskQuestion />
+            {/*<AskQuestion />*/}
 
             <PostPreview
                 title={'Музыка'}
