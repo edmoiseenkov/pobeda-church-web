@@ -8,15 +8,19 @@
 
 .sundayService {
   padding: 15px;
-  background: url('/images/sunday-service.png') center / cover;
+  background: linear-gradient(
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+  ),url('/images/sunday-service.png') center / cover;
   color: white;
   height: 100vh;
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
+  @media (min-width: 720px) {
+    background: url('/images/sunday-service.png') center / cover;
+  }
   > div {
     text-align: center;
   }
@@ -95,6 +99,7 @@
       padding-bottom: 25px;
       border-bottom: 1px solid #565656;
       @media (min-width: 800px) {
+        border-bottom: 0;
         margin-top: 0;
         padding-bottom: 0;
       }
