@@ -1,14 +1,15 @@
 import Head from 'next/head';
-import axios from 'axios';
+import getConfig from 'next/config';
 
-import styles from './Home.module.scss';
 import PageIntro from '../../shared/PageIntro/PageIntro';
 import PostPreview from '../../shared/PostPreview/PostPreview';
 import { Button, buttonVariants } from '../../shared/Button/Button';
 import { ReactComponent as MapIcon } from './../../assets/icons/Maps.svg';
-// import { AskQuestion } from '../../shared/AskQuestion/AskQuestion';
-
 import Footer from '../../shared/Footer/Footer';
+
+import styles from './Home.module.scss';
+
+const { publicRuntimeConfig } = getConfig();
 
 const menuItems = [
   { name: 'Церковь', link: '#' },
@@ -18,7 +19,6 @@ const menuItems = [
 ]
 
 function Home({ posts }) {
-    console.log('Home posts===', posts)
     return (
         <div className={styles.container}>
             <Head>
@@ -42,68 +42,21 @@ function Home({ posts }) {
                     >Посмотреть на карте</Button>
                 </div>
             </div>
-
+          {posts?.map(({title, content, btn, image, bgColor, id}, i) => (
             <PostPreview
-                title={'Церковь'}
-                text={'Наша Главная задача — быть «смоковницей», приносящей плод. Наша цель — спасти грешников в нашем гopoде и войти в небеса, наше оружие в борьбе с дьяволом — пост, молитва и проповедь Благой Вести. Мы уповаем на нерушимое Слово Божье и готовы идти до конца в вере нашему Спасителю.'}
-                buttonText={'Читать больше'}
-                buttonLink={'#'}
-                img={'/images/church-about-preview.png'}
+              key={id}
+              title={title}
+              isReverse={i % 2}
+              bgColor={bgColor}
+              text={content}
+              buttonText={btn}
+              buttonLink={'#'}
+              img={`${publicRuntimeConfig.strapiApi}${image.url}`}
             />
-
-            {/*<AskQuestion />*/}
-
-            <PostPreview
-                title={'Музыка'}
-                text={'Наша Главная задача — быть «смоковницей», приносящей плод. Наша цель — спасти грешников в нашем гopoде и войти в небеса, наше оружие в борьбе с дьяволом — пост, молитва и проповедь Благой Вести. Мы уповаем на нерушимое Слово Божье и готовы идти до конца в вере нашему Спасителю.'}
-                buttonText={'Слушать песни'}
-                buttonLink={'#'}
-                img={'/images/music-preview.png'}
-                isReverse={true}
-                bgColor={'#F5F9F0'}
-            />
-
-            <PostPreview
-                title={'Дети'}
-                text={'Наша Главная задача — быть «смоковницей», приносящей плод. Наша цель — спасти грешников в нашем гopoде и войти в небеса, наше оружие в борьбе с дьяволом — пост, молитва и проповедь Благой Вести. Мы уповаем на нерушимое Слово Божье и готовы идти до конца в вере нашему Спасителю.'}
-                buttonText={'Читать больше'}
-                buttonLink={'#'}
-                img={'/images/children-preview.png'}
-                buttonVariant={buttonVariants.outline}
-            />
-
-            <PostPreview
-                title={'Молодежное служение'}
-                text={'Наша Главная задача — быть «смоковницей», приносящей плод. Наша цель — спасти грешников в нашем гopoде и войти в небеса, наше оружие в борьбе с дьяволом — пост, молитва и проповедь Благой Вести. Мы уповаем на нерушимое Слово Божье и готовы идти до конца в вере нашему Спасителю.'}
-                buttonText={'Читать больше'}
-                buttonLink={'#'}
-                img={'/images/youth-preview.png'}
-                isReverse={true}
-                bgColor={'#FDF4EF'}
-            />
-
+          ))}
             <Footer />
         </div>
     );
 };
-
-// Home.getInitialProps = async ctx => {
-//   try {
-//     const posts = await axios.get('/posts')
-//     console.log('posts', posts.data)
-//     return { posts: posts.data };
-//   } catch (error) {
-//     return { error };
-//   }
-// };
-
-export async function getStaticProps() {
-  console.log('getStaticProps=====')
-  // const { data } = await axios.get('/posts')
-  // console.log('posts axios', data)
-  // return {
-  //   props: { posts: data },
-  // };
-}
 
 export default Home;

@@ -1,9 +1,9 @@
 import { useMemo, useContext } from 'react';
-import styles from './PostPreview.module.scss';
 
 import { buttonVariants, Link } from '../Button/Button';
-
 import { LayoutContext } from '../../App'
+
+import styles from './PostPreview.module.scss';
 
 export default function PostPreview({ title, img, text, isReverse, buttonText, buttonLink = '#', bgColor = 'white', buttonVariant }) {
 

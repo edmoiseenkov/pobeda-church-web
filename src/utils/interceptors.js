@@ -1,6 +1,9 @@
 import axios from 'axios';
+import getConfig from 'next/config';
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
+const { publicRuntimeConfig } = getConfig();
+
+axios.defaults.baseURL = publicRuntimeConfig.strapiApi
 
 axios.interceptors.response.use(
   async response => {

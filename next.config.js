@@ -10,6 +10,9 @@ module.exports = {
 
         return config;
     },
+    publicRuntimeConfig: {
+        strapiApi: process.env.NEXT_PUBLIC_STRAPI_API_URL,
+    },
     devIndicators: {
         autoPrerender: false,
     }
