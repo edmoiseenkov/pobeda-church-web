@@ -1,10 +1,13 @@
 import Head from 'next/head';
+import axios from 'axios';
+
 import styles from './Home.module.scss';
 import PageIntro from '../../shared/PageIntro/PageIntro';
 import PostPreview from '../../shared/PostPreview/PostPreview';
 import { Button, buttonVariants } from '../../shared/Button/Button';
 import { ReactComponent as MapIcon } from './../../assets/icons/Maps.svg';
 // import { AskQuestion } from '../../shared/AskQuestion/AskQuestion';
+
 import Footer from '../../shared/Footer/Footer';
 
 const menuItems = [
@@ -14,16 +17,8 @@ const menuItems = [
   { name: 'Молоджное', link: '#' },
 ]
 
-const Menu = () => {
-    return (
-        <ul className={styles.menu}>
-            {menuItems.map((item, i) => <li key={i}><a href={item.link}>{item.name}</a></li>)}
-        </ul>
-    );
-};
-
-export default function Home() {
-
+function Home({ posts }) {
+    console.log('Home posts===', posts)
     return (
         <div className={styles.container}>
             <Head>
@@ -33,7 +28,9 @@ export default function Home() {
 
             <PageIntro />
 
-            <Menu />
+          <ul className={styles.menu}>
+            {menuItems.map((item, i) => <li key={i}><a href={item.link}>{item.name}</a></li>)}
+          </ul>
 
             <div className={styles.sundayService}>
                 <div>
@@ -89,3 +86,24 @@ export default function Home() {
         </div>
     );
 };
+
+// Home.getInitialProps = async ctx => {
+//   try {
+//     const posts = await axios.get('/posts')
+//     console.log('posts', posts.data)
+//     return { posts: posts.data };
+//   } catch (error) {
+//     return { error };
+//   }
+// };
+
+export async function getStaticProps() {
+  console.log('getStaticProps=====')
+  // const { data } = await axios.get('/posts')
+  // console.log('posts axios', data)
+  // return {
+  //   props: { posts: data },
+  // };
+}
+
+export default Home;
