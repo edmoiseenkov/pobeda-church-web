@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import getConfig from 'next/config';
 
-import PageIntro from '../../shared/PageIntro/PageIntro';
-import PostPreview from '../../shared/PostPreview/PostPreview';
-import { Button, buttonVariants } from '../../shared/Button/Button';
+import PageIntro from '../../components/PageIntro/PageIntro';
+import PostPreview from '../../components/PostPreview/PostPreview';
+import { Button, buttonVariants } from '../../components/Button/Button';
 import { ReactComponent as MapIcon } from '../../assets/icons/Maps.svg';
-import Footer from '../../shared/Footer/Footer';
+import Footer from '../../components/Footer/Footer';
 
 import styles from './Home.module.scss';
 
