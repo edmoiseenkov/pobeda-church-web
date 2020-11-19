@@ -67,13 +67,13 @@ export default function PostPreview({
   );
 }
 
-PostPreview.propTypes = {
-  title: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  isReverse: PropTypes.bool.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  buttonLink: PropTypes.string,
-  bgColor: PropTypes.string,
-  buttonVariant: PropTypes.string,
-};
+// PostPreview.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   img: PropTypes.string.isRequired,
+//   text: PropTypes.string.isRequired,
+//   isReverse: PropTypes.bool.isRequired,
+//   buttonText: PropTypes.string.isRequired,
+//   buttonLink: PropTypes.string,
+//   bgColor: PropTypes.string,
+//   buttonVariant: PropTypes.string,
+// };
