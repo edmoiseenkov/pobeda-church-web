@@ -3,13 +3,13 @@ import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 
-axios.defaults.baseURL = publicRuntimeConfig.strapiApi
+axios.defaults.baseURL = publicRuntimeConfig.strapiApi;
 
 axios.interceptors.response.use(
-  async response => {
+  async (response) => {
     return response;
   },
-  error => {
+  (error) => {
     if (error.response) {
       console.error('error.response', error.response);
       throw error;
