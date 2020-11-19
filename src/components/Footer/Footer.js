@@ -1,9 +1,11 @@
-import styles from './Footer.module.scss';
+import { ReactComponent as InstaIcon } from '@assets/icons/Insta.svg';
+import { ReactComponent as TelegramIcon } from '@assets/icons/Telegram.svg';
+import { ReactComponent as FacebookIcon } from '@assets/icons/Facebook.svg';
+import { ReactComponent as ChurchLogoIcon } from '@assets/icons/Logo.svg';
+
 import { Button, buttonVariants } from '../Button/Button';
-import { ReactComponent as InstaIcon } from '../../assets/icons/Insta.svg';
-import { ReactComponent as TelegramIcon } from '../../assets/icons/Telegram.svg';
-import { ReactComponent as FacebookIcon } from '../../assets/icons/Facebook.svg';
-import { ReactComponent as ChurchLogoIcon } from '../../assets/icons/Logo.svg';
+
+import styles from './Footer.module.scss';
 
 const mainMenu = [
   { name: 'Главная', link: '' },

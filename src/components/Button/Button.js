@@ -31,7 +31,7 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   variant: PropTypes.string,
   component: PropTypes.string,
-  icon: PropTypes.string,
+  icon: PropTypes.func,
 };
 
 export const Link = ({ children, ...rest }) => {
