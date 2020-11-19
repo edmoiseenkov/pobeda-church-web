@@ -3,7 +3,7 @@ import { ReactComponent as TelegramIcon } from '@assets/icons/Telegram.svg';
 import { ReactComponent as FacebookIcon } from '@assets/icons/Facebook.svg';
 import { ReactComponent as ChurchLogoIcon } from '@assets/icons/Logo.svg';
 
-import { Button, buttonVariants } from '../Button/Button';
+import { Button, buttonVariants } from '../Button';
 
 import styles from './Footer.module.scss';
 

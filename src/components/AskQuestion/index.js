@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import styles from './AskQuestion.module.scss';
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
 export const AskQuestion = () => {
   const handleSubmit = useCallback((e) => {

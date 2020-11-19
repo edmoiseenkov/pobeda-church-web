@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useMemo, useContext } from 'react';
 
-import { buttonVariants, Link } from '../Button/Button';
+import { buttonVariants, Link } from '../Button';
 import { LayoutContext } from '../../App';
 
 import styles from './PostPreview.module.scss';
