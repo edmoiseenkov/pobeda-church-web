@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import Home from '../src/pages/Home/Home';
 
 export async function getStaticProps() {
