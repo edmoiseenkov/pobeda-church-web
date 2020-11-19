@@ -64,8 +64,4 @@ function Home({ posts }) {
   );
 }
 
-Home.propTypes = {
-  posts: PropTypes.object,
-};
-
 export default Home;
