@@ -51,12 +51,12 @@ function Home({ posts }) {
           <PostPreview
             key={id}
             title={title}
-            isReverse={i % 2}
+            isReverse={!!(i % 2)}
             bgColor={bgColor}
             text={content}
             buttonText={btn}
             buttonLink={'#'}
-            img={`${publicRuntimeConfig.strapiApi}${image.url}`}
+            img={`${publicRuntimeConfig.strapiApi}${image && image.url}`}
           />
         ))}
       <Footer />
@@ -65,7 +65,7 @@ function Home({ posts }) {
 }
 
 Home.propTypes = {
-  posts: PropTypes.object,
+  posts: PropTypes.array,
 };
 
 export default Home;
