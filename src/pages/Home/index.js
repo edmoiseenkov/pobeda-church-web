@@ -38,9 +38,9 @@ function Home({ homePage, settings }) {
       <div className={styles.sundayService}>
         <div>
           <div dangerouslySetInnerHTML={{ __html: homePage.main_section.text }} />
-          {homePage.main_section.buttons && homePage.main_section.buttons.map(button => (
+          {homePage.main_section.buttons && homePage.main_section.buttons.map((button, i) => (
             // TODO: set icon
-            <Button variant={buttonVariants.white} icon={() => <MapIcon />}>
+            <Button key={i} variant={buttonVariants.white} icon={() => <MapIcon />}>
               {button.text}
             </Button>
           ))}
