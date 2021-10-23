@@ -49,8 +49,7 @@ export default function PostPreview({
         }
       >
         <div>
-          <h3>{title}</h3>
-          <p>{text}</p>
+          <div dangerouslySetInnerHTML={{ __html: text }} />
           <Link
             href={buttonLink}
             variant={
@@ -68,7 +67,6 @@ export default function PostPreview({
 }
 
 PostPreview.propTypes = {
-  title: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   isReverse: PropTypes.bool.isRequired,

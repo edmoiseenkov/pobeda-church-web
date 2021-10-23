@@ -6,6 +6,7 @@ import { ReactComponent as ChurchLogoIcon } from '@assets/icons/Logo.svg';
 import { Button, buttonVariants } from '../Button';
 
 import styles from './Footer.module.scss';
+import { useMemo } from 'react';
 
 const mainMenu = [
   { name: 'Главная', link: '' },
@@ -35,13 +36,17 @@ const subMenus = [
   },
 ];
 
-const socials = [
-  { link: 'https://www.instagram.com/pobeda.dp/', component: InstaIcon },
-  { link: 'https://t.me/pobedachurch', component: TelegramIcon },
-  { link: 'https://www.facebook.com/pobedachurchdp', component: FacebookIcon },
-];
+export default function Footer({ settings }) {
+  const socials = useMemo(() => {
+    return [
+      { link: settings.instagram, component: InstaIcon },
+      { link: settings.telegram, component: TelegramIcon },
+      { link: settings.facebook, component: FacebookIcon },
+      { link: settings.youtube, component: FacebookIcon }, // TODO: add youtube icon
+    ]
+  }, []);
 
-export default function Footer() {
+
   return (
     <footer className={styles.wrapper}>
       <div className={styles.formWrapper}>
@@ -78,9 +83,7 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles.copyright}>
-        <p className={styles.copyrightText}>
-          Церковь "Победа" ©{new Date().getFullYear()}
-        </p>
+        <p className={styles.copyrightText}>Церковь "Победа" ©{new Date().getFullYear()}</p>
         <ul className={styles.copyrightSocials}>
           {socials.map(({ link, component: IconComponent }, i) => (
             <li key={i}>

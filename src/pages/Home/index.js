@@ -9,17 +9,15 @@ import { ReactComponent as MapIcon } from '@assets/icons/Maps.svg';
 import Footer from '@components/Footer';
 
 import styles from './Home.module.scss';
+import { useEffect } from 'react';
 
 const { publicRuntimeConfig } = getConfig();
 
-const menuItems = [
-  { name: 'Церковь', link: '#' },
-  { name: 'Музыка', link: '#' },
-  { name: 'Дети', link: '#' },
-  { name: 'Молоджное', link: '#' },
-];
+function Home({ homePage, settings }) {
+  useEffect(() => {
+    console.log('homePage', homePage);
+  }, []);
 
-function Home({ posts }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -27,45 +25,43 @@ function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PageIntro />
+      {/*<PageIntro />*/}
 
-      <ul className={styles.menu}>
-        {menuItems.map((item, i) => (
-          <li key={i}>
-            <a href={item.link}>{item.name}</a>
-          </li>
-        ))}
-      </ul>
+      {/*<ul className={styles.menu}>*/}
+      {/*  {settings && settings.menu && settings.menu.map((item, i) => (*/}
+      {/*    <li key={i}>*/}
+      {/*      <a href={item.link ? item.link.link : 'javascript: void(0);'}>{item.name}</a>*/}
+      {/*    </li>*/}
+      {/*  ))}*/}
+      {/*</ul>*/}
 
       <div className={styles.sundayService}>
         <div>
-          <h2>Воскресное служение</h2>
-          <p>в 11:00, добро пожаловать</p>
-          <Button variant={buttonVariants.white} icon={() => <MapIcon />}>
-            Посмотреть на карте
-          </Button>
+          <div dangerouslySetInnerHTML={{ __html: homePage.main_section.text }} />
+          {homePage.main_section.buttons && homePage.main_section.buttons.map(button => (
+            // TODO: set icon
+            <Button variant={buttonVariants.white} icon={() => <MapIcon />}>
+              {button.text}
+            </Button>
+          ))}
         </div>
       </div>
-      {posts &&
-        posts.map(({ title, content, btn, image, bgColor, id }, i) => (
-          <PostPreview
-            key={id}
-            title={title}
-            isReverse={!!(i % 2)}
-            bgColor={bgColor}
-            text={content}
-            buttonText={btn}
-            buttonLink={'#'}
-            img={`${publicRuntimeConfig.strapiApi}${image && image.url}`}
-          />
-        ))}
-      <Footer />
+
+      {homePage && homePage.sections && homePage.sections.map((section, i) => (
+        // TODO: rename & improve (rewrite)
+        <PostPreview
+          key={i}
+          isReverse={!(i % 2)}
+          bgColor={'white'}
+          text={section.text}
+          buttonText={section.buttons[0].text}
+          buttonLink={section.buttons[0].link}
+          img={`${publicRuntimeConfig.strapiApi}${section.image.url}`}
+        />
+      ))}
+      <Footer settings={settings} />
     </div>
   );
 }
-
-Home.propTypes = {
-  posts: PropTypes.array,
-};
 
 export default Home;
