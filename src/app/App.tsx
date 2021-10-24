@@ -3,7 +3,7 @@ import { useEffect, createContext, useState } from 'react';
 
 export const LayoutContext = createContext(null);
 
-export default function App({ Component, pageProps }) {
+export const App = ({ Component, pageProps }) => {
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
   const [isMobile, setIsMobile] = useState(true);

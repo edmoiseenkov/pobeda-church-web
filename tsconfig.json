@@ -19,14 +19,16 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "@pages/*": ["src/pages/*"],
-      "@components/*": ["src/components/*"],
-      "@utils/*": ["src/utils/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@components": ["src/app/components"],
+      "@components/*": ["src/app/components/*"],
+      "@core/*": ["src/app/core/*"],
+      "@pages/*": ["src/app/pages/*"]
     }
   },
   "include": [
     "next-env.d.ts",
+    "custom.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],

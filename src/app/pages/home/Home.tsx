@@ -1,19 +1,15 @@
-import PropTypes from 'prop-types';
 import Head from 'next/head';
 import getConfig from 'next/config';
 
-import PageIntro from '@components/PageIntro';
-import PostPreview from '@components/PostPreview';
-import { Button, buttonVariants } from '@components/Button';
-import { ReactComponent as MapIcon } from '@assets/icons/Maps.svg';
-import Footer from '@components/Footer';
+import { PageIntro, PostPreview, Button, buttonVariants, Footer } from '@components';
+import { ReactComponent as MapIcon } from '@assets/icons/Maps1.svg';
 
 import styles from './Home.module.scss';
 import { useEffect } from 'react';
 
 const { publicRuntimeConfig } = getConfig();
 
-function Home({ homePage, settings }) {
+export const Home = ({ homePage, settings }) => {
   useEffect(() => {
     console.log('homePage', homePage);
   }, []);
@@ -51,6 +47,7 @@ function Home({ homePage, settings }) {
         // TODO: rename & improve (rewrite)
         <PostPreview
           key={i}
+          title={''}
           isReverse={!(i % 2)}
           bgColor={'white'}
           text={section.text}
@@ -63,5 +60,3 @@ function Home({ homePage, settings }) {
     </div>
   );
 }
-
-export default Home;

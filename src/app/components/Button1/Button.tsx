@@ -14,7 +14,7 @@ export const Button = ({
   component: Component = 'button',
   icon: Icon,
   ...rest
-}) => {
+}: any) => {
   const buttonClass = useMemo(() => {
     return [styles.base, variant].join(' ');
   }, [variant]);
@@ -30,13 +30,14 @@ export const Button = ({
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   variant: PropTypes.string,
+  type: PropTypes.string,
   component: PropTypes.string,
   icon: PropTypes.func,
 };
 
 export const Link = ({ children, ...rest }) => {
   return (
-    <Button component={'a'} {...rest}>
+    <Button component={'a'} icon={null} {...rest}>
       {children}
     </Button>
   );

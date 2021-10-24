@@ -1,9 +1,9 @@
-import { ReactComponent as InstaIcon } from '@assets/icons/Insta.svg';
-import { ReactComponent as TelegramIcon } from '@assets/icons/Telegram.svg';
-import { ReactComponent as FacebookIcon } from '@assets/icons/Facebook.svg';
-import { ReactComponent as ChurchLogoIcon } from '@assets/icons/Logo.svg';
+import { ReactComponent as InstaIcon } from '@assets/icons/Insta1.svg';
+import { ReactComponent as TelegramIcon } from '@assets/icons/Telegram1.svg';
+import { ReactComponent as FacebookIcon } from '@assets/icons/Facebook1.svg';
+import { ReactComponent as ChurchLogoIcon } from '@assets/icons/Logo1.svg';
 
-import { Button, buttonVariants } from '../Button';
+import { Button, buttonVariants } from '@components';
 
 import styles from './Footer.module.scss';
 import { useMemo } from 'react';
@@ -36,7 +36,7 @@ const subMenus = [
   },
 ];
 
-export default function Footer({ settings }) {
+export const Footer = ({ settings }) => {
   const socials = useMemo(() => {
     return [
       { link: settings.instagram, component: InstaIcon },

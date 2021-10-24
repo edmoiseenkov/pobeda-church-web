@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { useMemo, useContext } from 'react';
 
-import { buttonVariants, Link } from '../Button';
+import { buttonVariants, Link } from '@components';
 import { LayoutContext } from '../../App';
 
 import styles from './PostPreview.module.scss';
 
-export default function PostPreview({
+export const PostPreview = ({
   title,
   img,
   text,
@@ -15,7 +15,7 @@ export default function PostPreview({
   buttonLink = '#',
   bgColor = 'white',
   buttonVariant,
-}) {
+}) => {
   const { isMobile } = useContext(LayoutContext);
 
   const containerClassName = useMemo(() => {

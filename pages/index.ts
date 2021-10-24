@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Home from '@pages/Home';
+import { Home } from '@pages/home';
 
 export async function getStaticProps() {
   try {
