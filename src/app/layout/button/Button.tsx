@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
+
 import styles from './Button.module.scss';
 
 export const buttonVariants = {

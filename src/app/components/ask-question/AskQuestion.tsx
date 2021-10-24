@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { Button } from '@components';
+import { Button } from '@app/layout';
 
 import styles from './AskQuestion.module.scss';
 

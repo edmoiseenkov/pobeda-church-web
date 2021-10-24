@@ -1,12 +1,9 @@
-import { ReactComponent as InstaIcon } from '@assets/icons/Insta1.svg';
-import { ReactComponent as TelegramIcon } from '@assets/icons/Telegram1.svg';
-import { ReactComponent as FacebookIcon } from '@assets/icons/Facebook1.svg';
-import { ReactComponent as ChurchLogoIcon } from '@assets/icons/Logo1.svg';
+import { useMemo } from 'react';
 
-import { Button, buttonVariants } from '@components';
+import { Button, buttonVariants } from '@app/layout';
+import { LogoSVG, InstagramSVG, TelegramSVG, FacebookSVG } from '@assets/icons';
 
 import styles from './Footer.module.scss';
-import { useMemo } from 'react';
 
 const mainMenu = [
   { name: 'Главная', link: '' },
@@ -39,10 +36,10 @@ const subMenus = [
 export const Footer = ({ settings }) => {
   const socials = useMemo(() => {
     return [
-      { link: settings.instagram, component: InstaIcon },
-      { link: settings.telegram, component: TelegramIcon },
-      { link: settings.facebook, component: FacebookIcon },
-      { link: settings.youtube, component: FacebookIcon }, // TODO: add youtube icon
+      { link: settings.instagram, component: InstagramSVG },
+      { link: settings.telegram, component: TelegramSVG },
+      { link: settings.facebook, component: FacebookSVG },
+      { link: settings.youtube, component: InstagramSVG }, // TODO: add youtube icon
     ]
   }, []);
 
@@ -65,7 +62,7 @@ export const Footer = ({ settings }) => {
           ))}
         </ul>
         <div className={styles.churchLogo}>
-          <ChurchLogoIcon />
+          <LogoSVG />
         </div>
         <div className={styles.subMenus}>
           {subMenus.map((menu, i) => (

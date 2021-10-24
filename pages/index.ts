@@ -1,14 +1,12 @@
 import axios from 'axios';
-import { Home } from '@pages/home';
+import { Home } from '@app/pages';
 
 export async function getStaticProps() {
   try {
-    const posts = await axios.get('/posts'); // TODO: remove
     const settings = await axios.get('/settings');
     const homePage = await axios.get('/home-page');
     return {
       props: {
-        posts: posts.data,
         settings: settings.data,
         homePage: homePage.data,
       },

@@ -20,10 +20,11 @@
     "jsx": "preserve",
     "paths": {
       "@assets/*": ["src/assets/*"],
-      "@components": ["src/app/components"],
-      "@components/*": ["src/app/components/*"],
-      "@core/*": ["src/app/core/*"],
-      "@pages/*": ["src/app/pages/*"]
+      "@app": ["src/app"],
+      "@app/components": ["src/app/components"],
+      "@app/core/*": ["src/app/core/*"],
+      "@app/layout": ["src/app/layout"],
+      "@app/pages": ["src/app/pages"]
     }
   },
   "include": [

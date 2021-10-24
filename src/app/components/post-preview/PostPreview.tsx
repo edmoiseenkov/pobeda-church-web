@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { useMemo, useContext } from 'react';
 
-import { buttonVariants, Link } from '@components';
-import { LayoutContext } from '../../App';
+import { LayoutContext } from '@app';
+import { buttonVariants, Link } from '@app/layout';
 
 import styles from './PostPreview.module.scss';
 
