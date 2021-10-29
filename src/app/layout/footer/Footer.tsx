@@ -10,10 +10,10 @@ export const Footer = ({ settings }) => {
   const socials = useMemo(() => {
     console.log('settings', settings.menu);
     return [
+      { link: settings.youtube, icon: YoutubeSVG },
       { link: settings.instagram, icon: InstagramSVG },
       { link: settings.telegram, icon: TelegramSVG },
       { link: settings.facebook, icon: FacebookSVG },
-      { link: settings.youtube, icon: YoutubeSVG }, // TODO: add youtube icon
     ]
   }, []);
 
