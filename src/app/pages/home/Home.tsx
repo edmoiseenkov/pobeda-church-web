@@ -1,56 +1,101 @@
+import { Box, Button, Flex, Icon, IconProps } from '@chakra-ui/react';
 import Head from 'next/head';
 import getConfig from 'next/config';
 import { useEffect } from 'react';
 
-import { PageIntro, PostPreview } from '@app/components';
-import { Button, buttonVariants, Footer } from '@app/layout';
+import { PostPreview } from '@app/components';
+import { Footer } from '@app/layout';
 import { LocationSVG } from '@assets/icons';
 
-import styles from './Home.module.scss';
+import { AskQuestion, BlackMenu, PageIntro } from './components';
+import { sectionColors } from './constants';
 
 const { publicRuntimeConfig } = getConfig();
 
-export const Home = ({ homePage, settings }) => {
+// TODO: describe types
+interface IHomeProps {
+  homePage: any;
+  settings: any;
+}
+
+const LocationIcon = (props: IconProps) => {
+  return (
+    <Icon viewBox="0 0 200 200" {...props}>
+      <LocationSVG />
+    </Icon>
+  );
+};
+
+export const Home = ({ homePage = {}, settings }: IHomeProps) => {
   useEffect(() => {
     console.log('homePage', homePage);
   }, []);
 
   return (
-    <div className={styles.container}>
+    <Box>
       <Head>
         <title>Церковь "Победа" г. Днепр</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/*<PageIntro />*/}
+      {/*<BlackMenu menu={settings.menu} />*/}
 
-      {/*<ul className={styles.menu}>*/}
-      {/*  {settings && settings.menu && settings.menu.map((item, i) => (*/}
-      {/*    <li key={i}>*/}
-      {/*      <a href={item.link ? item.link.link : 'javascript: void(0);'}>{item.name}</a>*/}
-      {/*    </li>*/}
-      {/*  ))}*/}
-      {/*</ul>*/}
+      {homePage.main_section && (
+        <Flex
+          alignItems={'center'}
+          bg={{
+            base: `
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+            url(${publicRuntimeConfig.strapiApi}${homePage.main_section.image.url}) center / cover
+          `,
+            lg: `
+            linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+            url(${publicRuntimeConfig.strapiApi}${homePage.main_section.image.url}) center / cover
+          `,
+          }}
+          color={'white'}
+          height={'100vh'}
+          minH={700}
+          justifyContent={'center'}
+          p={15}
+          textAlign={'center'}
+        >
+          <Box>
+            <Box
+              dangerouslySetInnerHTML={{ __html: homePage.main_section.text }}
+              sx={{
+                marginBottom: '16px',
+                p: {
+                  fontSize: '28px',
+                }
+              }}
+            />
+            {(homePage.main_section.buttons || []).map((button, i) => (
+              // TODO: set icon
+              <Button key={i} leftIcon={<LocationIcon boxSize={8} />} variant={'solidReversed'} size={'xxl'}>
+                {button.text}
+              </Button>
+            ))}
+          </Box>
+        </Flex>
+      )}
 
-      <div className={styles.sundayService}>
-        <div>
-          <div dangerouslySetInnerHTML={{ __html: homePage.main_section.text }} />
-          {homePage.main_section.buttons && homePage.main_section.buttons.map((button, i) => (
-            // TODO: set icon
-            <Button key={i} variant={buttonVariants.white} icon={() => <LocationSVG />}>
-              {button.text}
-            </Button>
-          ))}
-        </div>
-      </div>
+      <PostPreview
+        text={homePage.church_section.text}
+        buttonText={homePage.church_section.buttons[0].text}
+        buttonLink={homePage.church_section.buttons[0].link}
+        img={`${publicRuntimeConfig.strapiApi}${homePage.church_section.image.url}`}
+      />
 
-      {homePage && homePage.sections && homePage.sections.map((section, i) => (
+      <AskQuestion />
+
+      {(homePage.sections || []).map((section, i) => (
         // TODO: rename & improve (rewrite)
         <PostPreview
           key={i}
-          title={''}
           isReverse={!(i % 2)}
-          bgColor={'white'}
+          bgColor={sectionColors[(i + 1) % 4]}
           text={section.text}
           buttonText={section.buttons[0].text}
           buttonLink={section.buttons[0].link}
@@ -58,6 +103,6 @@ export const Home = ({ homePage, settings }) => {
         />
       ))}
       <Footer settings={settings} />
-    </div>
+    </Box>
   );
 }

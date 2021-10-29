@@ -1,77 +1,47 @@
-import PropTypes from 'prop-types';
-import { useMemo, useContext } from 'react';
+import { Box, Button, Flex } from '@chakra-ui/react';
+import React from 'react';
 
-import { LayoutContext } from '@app';
-import { buttonVariants, Link } from '@app/layout';
-
-import styles from './PostPreview.module.scss';
+import { textBlockStyles } from './constants';
+import { IPostPreviewProps } from './interfaces';
 
 export const PostPreview = ({
-  title,
   img,
   text,
-  isReverse,
+  isReverse = false,
   buttonText,
   buttonLink = '#',
   bgColor = 'white',
   buttonVariant,
-}) => {
-  const { isMobile } = useContext(LayoutContext);
-
-  const containerClassName = useMemo(() => {
-    const classes = [styles.container];
-    if (isReverse) {
-      classes.push(styles.container__reversed);
-    }
-    return classes.join(' ');
-  }, [isReverse]);
-
+}: IPostPreviewProps) => {
   return (
-    <div className={containerClassName} style={{ background: bgColor }}>
-      {!isMobile && (
-        <div
-          className={styles.image}
-          style={{ background: `url(${img}) center / cover` }}
-        />
-      )}
-      <div
-        className={styles.content}
-        style={
-          isMobile
-            ? {
-                background: `linear-gradient(
-                      rgba(0, 0, 0, 0.5),
-                      rgba(0, 0, 0, 0.5)
-                    ),
-                    url(${img}) center / cover`,
-              }
-            : {}
-        }
+    <Flex
+      flexDir={isReverse ? 'row-reverse' : 'row'}
+      bg={{
+        base: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${img}) center / cover`,
+        lg: bgColor
+      }}
+    >
+      <Box
+        bg={`url(${img}) center / cover`}
+        h={'auto'}
+        w={'50%'}
+        display={{ base: 'none', lg: 'block' }}
+      />
+
+      <Flex
+        flexDir={'column'}
+        color={{ base: 'white', lg: 'black' }}
+        p={{ base: '15px 15px 30px', lg: '96px' }}
+        w={{ base: '100%', lg: '50%' }}
       >
-        <div>
-          <div dangerouslySetInnerHTML={{ __html: text }} />
-          <Link
-            href={buttonLink}
-            variant={
-              isMobile
-                ? buttonVariants.white
-                : buttonVariant || buttonVariants.black
-            }
-          >
-            {buttonText}
-          </Link>
-        </div>
-      </div>
-    </div>
+        <Box
+          dangerouslySetInnerHTML={{ __html: text }}
+          sx={textBlockStyles}
+        />
+
+        {/*TODO: add variants to buttons*/}
+        <Button as={'a'} href={buttonLink} size={'xxl'} w={'fit-content'}>{buttonText}</Button>
+      </Flex>
+    </Flex>
   );
 }
-
-PostPreview.propTypes = {
-  img: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  isReverse: PropTypes.bool.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  buttonLink: PropTypes.string,
-  bgColor: PropTypes.string,
-  buttonVariant: PropTypes.string,
-};

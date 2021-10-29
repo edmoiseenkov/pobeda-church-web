@@ -22,6 +22,7 @@
       "@assets/*": ["src/assets/*"],
       "@app": ["src/app"],
       "@app/components": ["src/app/components"],
+      "@app/components/*": ["src/app/components/*"],
       "@app/core/*": ["src/app/core/*"],
       "@app/layout": ["src/app/layout"],
       "@app/pages": ["src/app/pages"]
