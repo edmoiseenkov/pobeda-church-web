@@ -1,16 +1,12 @@
-import { ComponentType } from 'react';
+import { AppProps } from 'next/app';
+import React from 'react';
 
-import { LayoutProvider } from '@app/layout';
+import { Theme } from '@app/core/theme';
 
-interface IAppProps {
-  Component: ComponentType;
-  pageProps: unknown;
-}
-
-export const App = ({ Component, pageProps }: IAppProps) => {
+export const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <LayoutProvider>
+    <Theme>
       <Component {...pageProps} />
-    </LayoutProvider>
+    </Theme>
   );
 }

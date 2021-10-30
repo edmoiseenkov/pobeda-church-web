@@ -3,8 +3,7 @@ import Head from 'next/head';
 import getConfig from 'next/config';
 import { useEffect } from 'react';
 
-import { PostPreview } from '@app/components';
-import { Footer } from '@app/layout';
+import { PostPreview, Footer } from '@app/components';
 import { LocationSVG } from '@assets/icons';
 
 import { AskQuestion, BlackMenu, PageIntro } from './components';

@@ -8,7 +8,6 @@ import { LogoIcon } from './components';
 
 export const Footer = ({ settings }) => {
   const socials = useMemo(() => {
-    console.log('settings', settings.menu);
     return [
       { link: settings.youtube, icon: YoutubeSVG },
       { link: settings.instagram, icon: InstagramSVG },
