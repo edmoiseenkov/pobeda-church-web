@@ -8,7 +8,9 @@ axios.defaults.baseURL = publicRuntimeConfig.strapiApi;
 
 axios.interceptors.response.use(
   async (response) => {
-    response.data = camelcaseKeys(response.data);
+    response.data = camelcaseKeys(response.data, {
+      deep: true
+    });
     return response;
   },
   (error) => {

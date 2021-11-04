@@ -1,26 +1,18 @@
+import { Box, Flex } from '@chakra-ui/react';
 import axios from 'axios';
-import { Box, Button, Flex, Icon, IconProps } from '@chakra-ui/react';
-import Head from 'next/head';
 import getConfig from 'next/config';
+import Head from 'next/head';
 import { useEffect } from 'react';
 
-import { PostPreview, Footer } from '@app/components';
+import { Footer, PostPreview } from '@app/components';
 import { getPageProps } from '@app/core/utils';
 import { IHomePage } from '@app/core/strapi';
-import { LocationSVG } from '@assets/icons';
 
-import { AskQuestion, BlackMenu, PageIntro } from './components';
+import { AskQuestion } from './components';
 import { sectionColors } from './constants';
+import { Button } from '../../components/strapi/button';
 
 const { publicRuntimeConfig } = getConfig();
-
-const LocationIcon = (props: IconProps) => {
-  return (
-    <Icon viewBox="0 0 200 200" {...props}>
-      <LocationSVG />
-    </Icon>
-  );
-};
 
 export const getStaticProps = getPageProps<IHomePage>(async () => {
   try {
@@ -65,23 +57,15 @@ export const Home = (props: IHomePage) => {
           justifyContent={'center'}
           p={15}
           textAlign={'center'}
+          sx={{
+            a: { marginX: '8px' },
+            p: { fontSize: '28px' },
+          }}
         >
           <Box>
-            <Box
-              dangerouslySetInnerHTML={{ __html: props.mainSection.text }}
-              sx={{
-                marginBottom: '16px',
-                p: {
-                  fontSize: '28px',
-                }
-              }}
-            />
-            {(props.mainSection.buttons || []).map((button, i) => (
-              // TODO: set icon
-              <Button key={i} leftIcon={<LocationIcon boxSize={8} />} variant={'solidReversed'} size={'xxl'}>
-                {button.text}
-              </Button>
-            ))}
+            <Box dangerouslySetInnerHTML={{ __html: props.mainSection.text }} mb={4} />
+
+            {(props.mainSection.buttons || []).map((button, i) => (<Button key={i} {...button} />))}
           </Box>
         </Flex>
       )}
