@@ -1,12 +1,15 @@
 import { Box, Button, Flex, Heading, Input, InputGroup, Link, List, ListItem, Text } from '@chakra-ui/react';
 import { useMemo } from 'react';
 
+import { useSettings } from '@app/core/providers';
 import { InstagramSVG, TelegramSVG, FacebookSVG, YoutubeSVG } from '@assets/icons';
 
 import { secondaryMenu } from './constants';
 import { LogoIcon } from './components';
 
-export const Footer = ({ settings }) => {
+export const Footer = () => {
+  const settings = useSettings();
+
   const socials = useMemo(() => {
     return [
       { link: settings.youtube, icon: YoutubeSVG },
@@ -14,7 +17,7 @@ export const Footer = ({ settings }) => {
       { link: settings.telegram, icon: TelegramSVG },
       { link: settings.facebook, icon: FacebookSVG },
     ]
-  }, []);
+  }, [settings]);
 
   return (
     <Flex

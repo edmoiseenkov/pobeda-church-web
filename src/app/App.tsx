@@ -2,12 +2,14 @@ import { AppProps } from 'next/app';
 import React from 'react';
 
 import { Theme } from '@app/core/theme';
+import { SettingsProvider } from '@app/core/providers';
 
-// TODO: add settings provider
-export const App = ({ Component, pageProps }: AppProps) => {
+export const App = ({ Component, pageProps: { settings, props } }: AppProps) => {
   return (
-    <Theme>
-      <Component {...pageProps} />
-    </Theme>
+    <SettingsProvider settings={settings}>
+      <Theme>
+        <Component {...props} />
+      </Theme>
+    </SettingsProvider>
   );
 }

@@ -1,21 +1,18 @@
+import axios from 'axios';
 import { Box, Button, Flex, Icon, IconProps } from '@chakra-ui/react';
 import Head from 'next/head';
 import getConfig from 'next/config';
 import { useEffect } from 'react';
 
 import { PostPreview, Footer } from '@app/components';
+import { getPageProps } from '@app/core/utils';
+import { IHomePage } from '@app/core/strapi';
 import { LocationSVG } from '@assets/icons';
 
 import { AskQuestion, BlackMenu, PageIntro } from './components';
 import { sectionColors } from './constants';
 
 const { publicRuntimeConfig } = getConfig();
-
-// TODO: describe types
-interface IHomeProps {
-  homePage: any;
-  settings: any;
-}
 
 const LocationIcon = (props: IconProps) => {
   return (
@@ -25,9 +22,18 @@ const LocationIcon = (props: IconProps) => {
   );
 };
 
-export const Home = ({ homePage = {}, settings }: IHomeProps) => {
+export const getStaticProps = getPageProps<IHomePage>(async () => {
+  try {
+    const homePage = await axios.get('/home-page');
+    return { props: homePage.data };
+  } catch (err) {}
+
+  return { props: {} };
+})
+
+export const Home = (props: IHomePage) => {
   useEffect(() => {
-    console.log('homePage', homePage);
+    console.log('Home props:', props);
   }, []);
 
   return (
@@ -40,17 +46,17 @@ export const Home = ({ homePage = {}, settings }: IHomeProps) => {
       {/*<PageIntro />*/}
       {/*<BlackMenu menu={settings.menu} />*/}
 
-      {homePage.mainSection && (
+      {props.mainSection && (
         <Flex
           alignItems={'center'}
           bg={{
             base: `
             linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-            url(${publicRuntimeConfig.strapiApi}${homePage.mainSection.image.url}) center / cover
+            url(${publicRuntimeConfig.strapiApi}${props.mainSection.image.url}) center / cover
           `,
             lg: `
             linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-            url(${publicRuntimeConfig.strapiApi}${homePage.mainSection.image.url}) center / cover
+            url(${publicRuntimeConfig.strapiApi}${props.mainSection.image.url}) center / cover
           `,
           }}
           color={'white'}
@@ -62,7 +68,7 @@ export const Home = ({ homePage = {}, settings }: IHomeProps) => {
         >
           <Box>
             <Box
-              dangerouslySetInnerHTML={{ __html: homePage.mainSection.text }}
+              dangerouslySetInnerHTML={{ __html: props.mainSection.text }}
               sx={{
                 marginBottom: '16px',
                 p: {
@@ -70,7 +76,7 @@ export const Home = ({ homePage = {}, settings }: IHomeProps) => {
                 }
               }}
             />
-            {(homePage.mainSection.buttons || []).map((button, i) => (
+            {(props.mainSection.buttons || []).map((button, i) => (
               // TODO: set icon
               <Button key={i} leftIcon={<LocationIcon boxSize={8} />} variant={'solidReversed'} size={'xxl'}>
                 {button.text}
@@ -81,15 +87,15 @@ export const Home = ({ homePage = {}, settings }: IHomeProps) => {
       )}
 
       <PostPreview
-        text={homePage.churchSection.text}
-        buttonText={homePage.churchSection.buttons[0].text}
-        buttonLink={homePage.churchSection.buttons[0].link}
-        img={`${publicRuntimeConfig.strapiApi}${homePage.churchSection.image.url}`}
+        text={props.churchSection.text}
+        buttonText={props.churchSection.buttons[0].text}
+        buttonLink={props.churchSection.buttons[0].link}
+        img={`${publicRuntimeConfig.strapiApi}${props.churchSection.image.url}`}
       />
 
       <AskQuestion />
 
-      {(homePage.sections || []).map((section, i) => (
+      {(props.sections || []).map((section, i) => (
         // TODO: rename & improve (rewrite)
         <PostPreview
           key={i}
@@ -101,7 +107,7 @@ export const Home = ({ homePage = {}, settings }: IHomeProps) => {
           img={`${publicRuntimeConfig.strapiApi}${section.image.url}`}
         />
       ))}
-      <Footer settings={settings} />
+      <Footer />
     </Box>
   );
 }
