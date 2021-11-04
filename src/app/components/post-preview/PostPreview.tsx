@@ -1,6 +1,8 @@
 import { Box, Button, Flex } from '@chakra-ui/react';
 import React from 'react';
 
+import { ButtonStyle } from '@app/core/strapi';
+
 import { textBlockStyles } from './constants';
 import { IPostPreviewProps } from './interfaces';
 
@@ -40,7 +42,13 @@ export const PostPreview = ({
         />
 
         {/*TODO: add variants to buttons*/}
-        <Button as={'a'} href={buttonLink} size={'xxl'} w={'fit-content'}>{buttonText}</Button>
+        <Button
+          as={'a'}
+          href={buttonLink}
+          size={'xxl'}
+          w={'fit-content'}
+          variant={ButtonStyle.DARK_SOLID}
+        >{buttonText}</Button>
       </Flex>
     </Flex>
   );

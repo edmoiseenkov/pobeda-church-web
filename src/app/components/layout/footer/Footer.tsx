@@ -2,20 +2,20 @@ import { Box, Button, Flex, Heading, Input, InputGroup, Link, List, ListItem, Te
 import { useMemo } from 'react';
 
 import { useSettings } from '@app/core/providers';
-import { InstagramSVG, TelegramSVG, FacebookSVG, YoutubeSVG } from '@assets/icons';
+import { ButtonStyle } from '@app/core/strapi';
+import { FacebookIcon, InstagramIcon, LogoIcon, TelegramIcon, YoutubeIcon } from '@assets/icons';
 
 import { secondaryMenu } from './constants';
-import { LogoIcon } from './components';
 
 export const Footer = () => {
   const settings = useSettings();
 
   const socials = useMemo(() => {
     return [
-      { link: settings.youtube, icon: YoutubeSVG },
-      { link: settings.instagram, icon: InstagramSVG },
-      { link: settings.telegram, icon: TelegramSVG },
-      { link: settings.facebook, icon: FacebookSVG },
+      { link: settings.youtube, icon: YoutubeIcon },
+      { link: settings.instagram, icon: InstagramIcon },
+      { link: settings.telegram, icon: TelegramIcon },
+      { link: settings.facebook, icon: FacebookIcon },
     ]
   }, [settings]);
 
@@ -50,7 +50,7 @@ export const Footer = () => {
         <Flex as={'form'} w={{ base: '100%', md: '70%' }}>
           <InputGroup size={'xxl'}>
             <Input type="email" placeholder="Отправьте вашу почту" variant={'outlineReversed'} />
-            <Button variant={'solidReversed'}>Отправить</Button>
+            <Button variant={ButtonStyle.LIGHT_SOLID}>Отправить</Button>
           </InputGroup>
         </Flex>
       </Flex>
@@ -140,7 +140,7 @@ export const Footer = () => {
               },
             }}>
               <Link href={link} target="_blank">
-                <Icon opacity={0.8} width={32} height={32} />
+                <Icon opacity={0.8} width={'32px'} height={'32px'} />
               </Link>
             </ListItem>
           ))}

@@ -1,6 +1,8 @@
 import { Button, Flex, Heading, Input, InputGroup } from '@chakra-ui/react';
 import React, { useCallback } from 'react';
 
+import { ButtonStyle } from '@app/core/strapi';
+
 export const AskQuestion = () => {
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ export const AskQuestion = () => {
       <Flex as={'form'} onSubmit={handleSubmit}>
         <InputGroup size={'xxl'}>
           <Input type="email" placeholder={'Ваш вопрос напишите тут'} />
-          <Button type={'submit'}>Отправить</Button>
+          <Button type={'submit'} variant={ButtonStyle.DARK_SOLID}>Отправить</Button>
         </InputGroup>
       </Flex>
     </Flex>

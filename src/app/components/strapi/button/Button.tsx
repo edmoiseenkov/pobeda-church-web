@@ -1,22 +1,10 @@
-import { Button as ChakraButton, Icon, IconProps } from '@chakra-ui/react';
+import { Button as ChakraButton } from '@chakra-ui/react';
 import { useMemo } from 'react';
 
 import { IButton } from '@app/core/strapi/types';
-import { ButtonIcon, ButtonIconPosition, ButtonStyle, ButtonTarget } from '@app/core/strapi/enums';
-import { LocationSVG } from '@assets/icons';
+import { ButtonIconPosition, ButtonStyle, ButtonTarget } from '@app/core/strapi/enums';
 
-const LocationIcon = (props: IconProps) => {
-  return (
-    <Icon viewBox="0 0 200 200" {...props}>
-      <LocationSVG />
-    </Icon>
-  );
-};
-
-// TODO: provide icons
-const icons = {
-  [ButtonIcon.LOCATION]: LocationIcon,
-};
+import { buttonIconsMap } from './constants';
 
 export const Button = (
   {
@@ -29,7 +17,7 @@ export const Button = (
     style = ButtonStyle.DARK_SOLID,
   }: IButton
 ) => {
-  const Icon = useMemo(() => icons[icon], [icon]);
+  const Icon = useMemo(() => buttonIconsMap[icon], [icon]);
 
   const openIn = useMemo(() => {
     switch (target) {
