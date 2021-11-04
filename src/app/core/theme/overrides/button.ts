@@ -1,3 +1,5 @@
+import { ThemeSizes } from '../enums';
+
 export const Button = {
   baseStyle: {
     borderRadius: 0,
@@ -21,7 +23,7 @@ export const Button = {
     }
   },
   sizes: {
-    xxl: {
+    [ThemeSizes.xxl]: {
       h: '65px',
       fontSize: 'lg',
       px: '32px',

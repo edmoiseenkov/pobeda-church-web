@@ -40,17 +40,17 @@ export const Home = ({ homePage = {}, settings }: IHomeProps) => {
       {/*<PageIntro />*/}
       {/*<BlackMenu menu={settings.menu} />*/}
 
-      {homePage.main_section && (
+      {homePage.mainSection && (
         <Flex
           alignItems={'center'}
           bg={{
             base: `
             linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-            url(${publicRuntimeConfig.strapiApi}${homePage.main_section.image.url}) center / cover
+            url(${publicRuntimeConfig.strapiApi}${homePage.mainSection.image.url}) center / cover
           `,
             lg: `
             linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-            url(${publicRuntimeConfig.strapiApi}${homePage.main_section.image.url}) center / cover
+            url(${publicRuntimeConfig.strapiApi}${homePage.mainSection.image.url}) center / cover
           `,
           }}
           color={'white'}
@@ -62,7 +62,7 @@ export const Home = ({ homePage = {}, settings }: IHomeProps) => {
         >
           <Box>
             <Box
-              dangerouslySetInnerHTML={{ __html: homePage.main_section.text }}
+              dangerouslySetInnerHTML={{ __html: homePage.mainSection.text }}
               sx={{
                 marginBottom: '16px',
                 p: {
@@ -70,7 +70,7 @@ export const Home = ({ homePage = {}, settings }: IHomeProps) => {
                 }
               }}
             />
-            {(homePage.main_section.buttons || []).map((button, i) => (
+            {(homePage.mainSection.buttons || []).map((button, i) => (
               // TODO: set icon
               <Button key={i} leftIcon={<LocationIcon boxSize={8} />} variant={'solidReversed'} size={'xxl'}>
                 {button.text}
@@ -81,10 +81,10 @@ export const Home = ({ homePage = {}, settings }: IHomeProps) => {
       )}
 
       <PostPreview
-        text={homePage.church_section.text}
-        buttonText={homePage.church_section.buttons[0].text}
-        buttonLink={homePage.church_section.buttons[0].link}
-        img={`${publicRuntimeConfig.strapiApi}${homePage.church_section.image.url}`}
+        text={homePage.churchSection.text}
+        buttonText={homePage.churchSection.buttons[0].text}
+        buttonLink={homePage.churchSection.buttons[0].link}
+        img={`${publicRuntimeConfig.strapiApi}${homePage.churchSection.image.url}`}
       />
 
       <AskQuestion />

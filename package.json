@@ -24,6 +24,7 @@
     "@emotion/styled": "^11",
     "@svgr/webpack": "^5.4.0",
     "axios": "^0.21.0",
+    "camelcase-keys": "^7.0.1",
     "framer-motion": "^4",
     "next": "9.5.3",
     "react": "16.13.1",
