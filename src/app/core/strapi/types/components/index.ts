@@ -1,5 +1,4 @@
 export * from './layout';
-export * from './section';
 
 export * from './gallery';
 export * from './image';

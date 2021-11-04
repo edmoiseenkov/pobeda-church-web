@@ -1,11 +1,12 @@
 import { ThemeSizes } from '../enums';
+import { ButtonStyle } from '@app/core/strapi';
 
 export const Button = {
   baseStyle: {
     borderRadius: 0,
   },
   variants: {
-    solid: {
+    [ButtonStyle.DARK_SOLID]: {
       background: 'black',
       color: 'white',
       _hover: {
@@ -13,7 +14,7 @@ export const Button = {
         boxShadow: '6px 6px 0 rgba(0, 0, 0, 0.5)',
       }
     },
-    solidReversed: {
+    [ButtonStyle.LIGHT_SOLID]: {
       background: 'white',
       color: 'black',
       _hover: {

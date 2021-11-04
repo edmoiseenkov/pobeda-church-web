@@ -26,7 +26,7 @@ export const Button = (
     target,
     link,
     configs,
-    style = ButtonStyle.SOLID,
+    style = ButtonStyle.DARK_SOLID,
   }: IButton
 ) => {
   const Icon = useMemo(() => icons[icon], [icon]);
@@ -46,7 +46,7 @@ export const Button = (
       target={openIn}
       leftIcon={icon && iconPosition === ButtonIconPosition.LEFT && <Icon boxSize={8} />}
       rightIcon={icon && iconPosition === ButtonIconPosition.RIGHT && <Icon boxSize={8} />}
-      variant={style} // TODO: sync styles
+      variant={style}
       {...configs}
     >{text}</ChakraButton>
   );
