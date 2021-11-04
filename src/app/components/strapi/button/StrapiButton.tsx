@@ -1,10 +1,10 @@
-import { Button } from '@chakra-ui/react';
+import { Button as ChakraButton } from '@chakra-ui/react';
 import { useMemo } from 'react';
 
-import { IStrapiButton } from '@app/core/strapi/types';
+import { IButton } from '@app/core/strapi/types';
 import { ButtonIconPosition, ButtonTarget } from '@app/core/strapi/enums';
 
-export const StrapiButton = (
+export const Button = (
   {
     text,
     icon,
@@ -13,7 +13,7 @@ export const StrapiButton = (
     link,
     configs,
     style,
-  }: IStrapiButton
+  }: IButton
 ) => {
   const Icon = useMemo(() => {
     return null; // TODO: provide icon
@@ -28,7 +28,7 @@ export const StrapiButton = (
   }, [target]);
 
   return (
-    <Button
+    <ChakraButton
       as={'a'}
       href={link}
       target={openIn}
@@ -36,6 +36,6 @@ export const StrapiButton = (
       rightIcon={iconPosition === ButtonIconPosition.RIGHT && <Icon />}
       variant={style} // TODO: sync styles
       {...configs}
-    >{text}</Button>
+    >{text}</ChakraButton>
   );
 };
