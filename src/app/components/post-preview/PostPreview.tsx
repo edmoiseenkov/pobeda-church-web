@@ -6,6 +6,7 @@ import { ButtonStyle } from '@app/core/strapi';
 import { textBlockStyles } from './constants';
 import { IPostPreviewProps } from './interfaces';
 
+// TODO: rename & improve (rewrite)
 export const PostPreview = ({
   img,
   text,

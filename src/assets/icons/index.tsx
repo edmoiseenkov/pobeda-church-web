@@ -14,10 +14,15 @@ export const ArrowHomeIcon = createIconComponent('./arrow-home.svg');
 export const ArrowInFooterIcon = createIconComponent('./arrow-in-footer.svg');
 export const ArrowLeftIcon = createIconComponent('./arrow-left.svg');
 export const ArrowRightIcon = createIconComponent('./arrow-right.svg');
-export const FacebookIcon = createIconComponent('./facebook.svg');
-export const InstagramIcon = createIconComponent('./instagram.svg');
 export const LocationIcon = createIconComponent('./location.svg');
 export const LogoIcon = createIconComponent('./logo.svg', '0 0 52 77');
 export const MenuIcon = createIconComponent('./menu.svg');
 export const TelegramIcon = createIconComponent('./telegram.svg');
 export const YoutubeIcon = createIconComponent('./youtube.svg');
+export const FacebookIcon = createIconComponent('./facebook.svg');
+export const InstagramIcon = createIconComponent('./instagram.svg');
+
+// export const FacebookIcon = createIconComponent('./new_facebook.svg');
+// export const InstagramIcon = createIconComponent('./new_insta.svg');
+// export const TelegramIcon = createIconComponent('./new_telegram.svg');
+// export const YoutubeIcon = createIconComponent('./new_youtube.svg');

@@ -4,7 +4,7 @@ import getConfig from 'next/config';
 import Head from 'next/head';
 import { useEffect } from 'react';
 
-import { Footer, PostPreview } from '@app/components';
+import { Footer, Header, PostPreview } from '@app/components';
 import { getPageProps } from '@app/core/utils';
 import { IHomePage } from '@app/core/strapi';
 
@@ -34,6 +34,8 @@ export const Home = (props: IHomePage) => {
         <title>Церковь "Победа" г. Днепр</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Header />
 
       {/*<PageIntro />*/}
       {/*<BlackMenu menu={settings.menu} />*/}
@@ -80,7 +82,6 @@ export const Home = (props: IHomePage) => {
       <AskQuestion />
 
       {(props.sections || []).map((section, i) => (
-        // TODO: rename & improve (rewrite)
         <PostPreview
           key={i}
           isReverse={!(i % 2)}

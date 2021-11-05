@@ -1,8 +1,8 @@
 import { Button as ChakraButton } from '@chakra-ui/react';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
-import { IButton } from '@app/core/strapi/types';
-import { ButtonIconPosition, ButtonStyle, ButtonTarget } from '@app/core/strapi/enums';
+import { IButton, ButtonIconPosition, ButtonStyle } from '@app/core/strapi';
+import { ThemeSizes } from '@app/core/theme';
 
 import { buttonIconsMap } from './constants';
 
@@ -11,31 +11,33 @@ export const Button = (
     text,
     icon,
     iconPosition,
-    target,
-    link,
+    link = '',
     configs,
     style = ButtonStyle.DARK_SOLID,
+    openInNewWindow,
   }: IButton
 ) => {
   const Icon = useMemo(() => buttonIconsMap[icon], [icon]);
 
-  const openIn = useMemo(() => {
-    switch (target) {
-      case ButtonTarget.NEW_WINDOW: return '_blank';
-      case ButtonTarget.MODAL_WINDOW: return ''; // TODO
-      default: return '_self';
+  const handleClick = useCallback((e) => {
+    if (link.substr(0, 7) === '#modal-') {
+      e.preventDefault();
+      const modalName = link.substr(7);
+      // TODO: provide possibility to open modal
+      console.log(`Open modal with name: ${modalName}`);
     }
-  }, [target]);
+  }, [link]);
 
   return (
     <ChakraButton
       as={'a'}
       href={link}
-      target={openIn}
+      target={openInNewWindow ? '_blank' : '_self'}
       leftIcon={icon && iconPosition === ButtonIconPosition.LEFT && <Icon boxSize={8} />}
       rightIcon={icon && iconPosition === ButtonIconPosition.RIGHT && <Icon boxSize={8} />}
       variant={style}
-      {...configs}
+      size={configs.size || ThemeSizes.xxl}
+      onClick={handleClick}
     >{text}</ChakraButton>
   );
 };
