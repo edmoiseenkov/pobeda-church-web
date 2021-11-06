@@ -21,8 +21,3 @@ export const TelegramIcon = createIconComponent('./telegram.svg');
 export const YoutubeIcon = createIconComponent('./youtube.svg');
 export const FacebookIcon = createIconComponent('./facebook.svg');
 export const InstagramIcon = createIconComponent('./instagram.svg');
-
-// export const FacebookIcon = createIconComponent('./new_facebook.svg');
-// export const InstagramIcon = createIconComponent('./new_insta.svg');
-// export const TelegramIcon = createIconComponent('./new_telegram.svg');
-// export const YoutubeIcon = createIconComponent('./new_youtube.svg');
