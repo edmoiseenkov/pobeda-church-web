@@ -5,6 +5,11 @@ import { IButton, ButtonIconPosition, ButtonStyle } from '@app/core/strapi';
 import { ThemeSizes } from '@app/core/theme';
 
 import { buttonIconsMap } from './constants';
+import { SystemStyleObject } from '@chakra-ui/styled-system';
+
+export interface IButtonProps extends IButton {
+  sx?: SystemStyleObject;
+}
 
 export const Button = (
   {
@@ -15,7 +20,8 @@ export const Button = (
     configs,
     style = ButtonStyle.DARK_SOLID,
     openInNewWindow,
-  }: IButton
+    sx,
+  }: IButtonProps
 ) => {
   const Icon = useMemo(() => buttonIconsMap[icon], [icon]);
 
@@ -36,7 +42,8 @@ export const Button = (
       leftIcon={icon && iconPosition === ButtonIconPosition.LEFT && <Icon boxSize={8} />}
       rightIcon={icon && iconPosition === ButtonIconPosition.RIGHT && <Icon boxSize={8} />}
       variant={style}
-      size={configs.size || ThemeSizes.xxl}
+      size={configs?.size || ThemeSizes.xxl}
+      sx={sx}
       onClick={handleClick}
     >{text}</ChakraButton>
   );
