@@ -24,7 +24,7 @@
       "@app/components": ["src/app/components"],
       "@app/components/strapi": ["src/app/components/strapi"],
       "@app/core/*": ["src/app/core/*"],
-      "@app/pages": ["src/app/pages"]
+      "@app/pages/*": ["src/app/pages/*"]
     }
   },
   "include": [

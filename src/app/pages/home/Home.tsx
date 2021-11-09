@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react';
 import axios from 'axios';
 import Head from 'next/head';
 
-import { Footer, Header, ImageSection } from '@app/components';
+import { ImageSection } from '@app/components';
 import { getPageProps } from '@app/core/utils';
 import { IHomePage } from '@app/core/strapi';
 
@@ -21,12 +21,11 @@ export const getStaticProps = getPageProps<IHomePage>(async () => {
 export const Home = (props: IHomePage) => {
   return (
     <Box>
+      {/*TODO: move Head to layout*/}
       <Head>
         <title>Церковь "Победа" г. Днепр</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Header />
 
       {/*<PageIntro />*/}
       {/*<BlackMenu menu={settings.menu} />*/}
@@ -44,7 +43,6 @@ export const Home = (props: IHomePage) => {
           {...section}
         />
       ))}
-      <Footer />
     </Box>
   );
 }

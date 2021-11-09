@@ -6,9 +6,10 @@ import {
   ListItem,
   Menu,
   MenuButton,
-  MenuItem,
   MenuList
 } from '@chakra-ui/react';
+import NextLink from 'next/link'
+
 import { LogoIcon, MenuIcon } from '@assets/icons';
 import { useSettings } from '@app/core/providers';
 
@@ -24,7 +25,11 @@ export const Header = () => {
       paddingX={25}
       paddingY={5}
     >
-      <LogoIcon width={20} height={20} />
+      <NextLink href={'/'} passHref>
+        <Link>
+          <LogoIcon width={20} height={20} />
+        </Link>
+      </NextLink>
 
       <List display={{ base: 'none', md: 'flex' }}>
         {(settings.menu || []).map((item, i) => (

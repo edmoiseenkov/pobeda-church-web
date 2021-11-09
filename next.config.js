@@ -7,6 +7,14 @@ module.exports = {
 
     return config;
   },
+  async rewrites() {
+    return [
+      {
+        source: '/uploads/:path*',
+        destination: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/uploads/:path*`,
+      },
+    ]
+  },
   publicRuntimeConfig: {
     strapiApi: process.env.NEXT_PUBLIC_STRAPI_API_URL,
   },
