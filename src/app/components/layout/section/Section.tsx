@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import getConfig from 'next/config';
 
 import { IImageSection } from '@app/core/strapi';
-import { Button } from '@app/components/strapi';
+import { Button } from '@app/components';
 
 import { textBlockStyles } from './constants';
 import { SectionFullWidth } from './components';
