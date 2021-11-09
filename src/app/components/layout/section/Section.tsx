@@ -6,26 +6,26 @@ import { IImageSection } from '@app/core/strapi';
 import { Button } from '@app/components/strapi';
 
 import { textBlockStyles } from './constants';
-import { ImageSectionFullWidth } from './components';
+import { SectionFullWidth } from './components';
 
 const { publicRuntimeConfig } = getConfig();
 
-export interface IImageSectionProps extends IImageSection {
+export interface ISectionProps extends IImageSection {
   bgColor?: string;
   isRightSide?: boolean;
 }
 
-export const ImageSection = (
+export const Section = (
   {
     bgColor = 'white',
     isRightSide = false,
     ...props
-  }: IImageSectionProps
+  }: ISectionProps
 ) => {
   const imageUrl = useMemo(() => `${publicRuntimeConfig.strapiApi}${props.image.url}`, [props.image]);
 
   if (props.isFullWidth) {
-    return <ImageSectionFullWidth imageUrl={imageUrl} {...props} />;
+    return <SectionFullWidth imageUrl={imageUrl} {...props} />;
   }
 
   return (

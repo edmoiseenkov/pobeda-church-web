@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react';
 import axios from 'axios';
 import Head from 'next/head';
 
-import { ImageSection } from '@app/components';
+import { Section } from '@app/components';
 import { getPageProps } from '@app/core/utils';
 import { IHomePage } from '@app/core/strapi';
 
@@ -30,13 +30,13 @@ export const Home = (props: IHomePage) => {
       {/*<PageIntro />*/}
       {/*<BlackMenu menu={settings.menu} />*/}
 
-      <ImageSection {...(props.mainSection)} />
-      <ImageSection {...props.churchSection}/>
+      <Section {...(props.mainSection)} />
+      <Section {...props.churchSection}/>
 
       <AskQuestion />
 
       {(props.sections || []).map((section, i) => (
-        <ImageSection
+        <Section
           key={i}
           isRightSide={!(i % 2)}
           bgColor={sectionColors[(i + 1) % 4]}
