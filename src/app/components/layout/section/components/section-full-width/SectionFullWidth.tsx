@@ -3,24 +3,21 @@ import { Box, Flex } from '@chakra-ui/react';
 import { IImageSection } from '@app/core/strapi';
 import { Button } from '@app/components';
 
-export interface ISectionFullWidthProps extends IImageSection {
-  imageUrl: string;
-}
+export type ISectionFullWidthProps = IImageSection;
 
 export const SectionFullWidth = (
   {
     text,
     buttons,
     image,
-    imageUrl
   }: ISectionFullWidthProps
 ) => {
   return (
     <Flex
       alignItems={'center'}
       bg={{
-        base: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageUrl}) center / cover`,
-        lg: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${imageUrl}) center / cover`,
+        base: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image.url}) center / cover`,
+        lg: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${image.url}) center / cover`,
       }}
       color={'white'}
       height={'100vh'}

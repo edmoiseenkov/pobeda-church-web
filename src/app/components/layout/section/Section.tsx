@@ -1,14 +1,11 @@
 import { Box, Flex } from '@chakra-ui/react';
-import React, { useMemo } from 'react';
-import getConfig from 'next/config';
+import React  from 'react';
 
 import { IImageSection } from '@app/core/strapi';
 import { Button } from '@app/components';
 
 import { textBlockStyles } from './constants';
 import { SectionFullWidth } from './components';
-
-const { publicRuntimeConfig } = getConfig();
 
 export interface ISectionProps extends IImageSection {
   bgColor?: string;
@@ -22,22 +19,20 @@ export const Section = (
     ...props
   }: ISectionProps
 ) => {
-  const imageUrl = useMemo(() => `${publicRuntimeConfig.strapiApi}${props.image.url}`, [props.image]);
-
   if (props.isFullWidth) {
-    return <SectionFullWidth imageUrl={imageUrl} {...props} />;
+    return <SectionFullWidth {...props} />;
   }
 
   return (
     <Flex
       flexDir={isRightSide ? 'row-reverse' : 'row'}
       bg={{
-        base: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageUrl}) center / cover`,
+        base: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${props.image.url}) center / cover`,
         lg: bgColor
       }}
     >
       <Box
-        bg={`url(${imageUrl}) center / cover`}
+        bg={`url(${props.image.url}) center / cover`}
         h={'auto'}
         w={'50%'}
         display={{ base: 'none', lg: 'block' }}
