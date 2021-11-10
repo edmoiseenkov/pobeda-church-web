@@ -5,6 +5,7 @@ import Head from 'next/head';
 
 import { IPost, PostType } from '@app/core/strapi';
 import { getPageProps } from '@app/core/utils';
+import { StrapiDynamicZoneMap } from '@app/core/constants';
 
 export function getStaticPathsPostsCreator(postType: PostType) {
   return async () => {
@@ -27,6 +28,7 @@ export const getStaticProps = getPageProps<{}>(async ({ params }) => {
   return { props: {} };
 })
 
+{/*TODO: fix responsive design*/}
 export const Post = (props: IPost) => {
   return (
     <Box>
@@ -40,35 +42,17 @@ export const Post = (props: IPost) => {
         bg={`linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${props.image.url}) center / cover`}
         color={'white'}
         h={380}
+        mb={50}
       >
-        <Container maxW="container.lg">
+        <Container maxW="container.lg" px={0}>
           <Heading as={'h1'} size={'4xl'} fontWeight={500} mb={50}>{props.title}</Heading>
         </Container>
       </Flex>
 
-      <Container maxW="container.lg" paddingTop={50} px={0} fontSize={22}>
-
-        {props.content.map((contentItem, i) => {
-          return (
-            <Box
-              key={i}
-              dangerouslySetInnerHTML={{ __html: (contentItem as any)?.body }}
-              sx={{
-                img: {
-                  marginY: '60px',
-                  transform: 'scale(1.1)',
-                },
-                p: {
-                  marginBottom: '20px',
-                  _last: {
-                    marginBottom: 0
-                  }
-                },
-              }}
-            />
-          );
-        })}
-      </Container>
+      {props.content.map(({ component, ...content }, i) => {
+        const Component: any = StrapiDynamicZoneMap[component];
+        return (<Component key={i} {...content} />);
+      })}
     </Box>
   );
 };

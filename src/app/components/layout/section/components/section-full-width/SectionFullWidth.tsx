@@ -1,9 +1,9 @@
 import { Box, Flex } from '@chakra-ui/react';
 
-import { IImageSection } from '@app/core/strapi';
+import { ISection } from '@app/core/strapi';
 import { Button } from '@app/components';
 
-export type ISectionFullWidthProps = IImageSection;
+export type ISectionFullWidthProps = ISection;
 
 export const SectionFullWidth = (
   {

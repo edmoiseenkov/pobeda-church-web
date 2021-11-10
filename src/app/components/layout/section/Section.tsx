@@ -1,13 +1,13 @@
 import { Box, Flex } from '@chakra-ui/react';
 import React  from 'react';
 
-import { IImageSection } from '@app/core/strapi';
+import { ISection } from '@app/core/strapi';
 import { Button } from '@app/components';
 
 import { textBlockStyles } from './constants';
 import { SectionFullWidth } from './components';
 
-export interface ISectionProps extends IImageSection {
+export interface ISectionProps extends ISection {
   bgColor?: string;
   isRightSide?: boolean;
 }

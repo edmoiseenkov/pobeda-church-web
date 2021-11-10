@@ -1,6 +1,6 @@
 import { IButton, IStrapiMedia } from '@app/core/strapi';
 
-export interface IImageSection {
+export interface ISection {
   id: number;
   image: IStrapiMedia;
   text: string;
