@@ -33,6 +33,10 @@ export const ModalProvider = ({ children, ...rest }: IModalProviderProps) => {
   }, [onOpen]);
 
   const ModalComponent = useMemo<React.FC<any> | null>(() => {
+    if (!modalName) {
+      return null;
+    }
+
     const component = ModalsMap[modalName] as React.FC;
     if (!component) {
       console.warn(`"${modalName}" modal component doesn't exist...`)

@@ -1,10 +1,10 @@
-import { Box, Container, Flex, Heading, useMediaQuery } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading } from '@chakra-ui/react';
 import axios from 'axios';
 import React from 'react';
 
 import { HtmlHead } from '@app/components';
 import { IPost, PostType } from '@app/core/strapi';
-import { getPageProps } from '@app/core/utils';
+import { getPageProps, useMediaQuery } from '@app/core/utils';
 import { StrapiDynamicZoneMap } from '@app/core/constants';
 import { breakpoints } from '@app/core/theme/constants';
 

@@ -1,9 +1,10 @@
-import { Box, Flex, useMediaQuery } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import React from 'react';
 
-import { ButtonStyle, ISection } from '@app/core/strapi';
 import { Button } from '@app/components';
+import { ButtonStyle, ISection } from '@app/core/strapi';
 import { breakpoints } from '@app/core/theme/constants';
+import { useMediaQuery } from '@app/core/utils';
 
 import { textBlockStyles } from './constants';
 import { SectionFullWidth } from './components';
