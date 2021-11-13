@@ -21,7 +21,7 @@ export const Video = ({ url }: IVideoProps) => {
         }
       }}
     >
-      <ReactPlayer url={url} width={'100%'} />
+      <ReactPlayer url={url} width={'100%'} height={'auto'} />
     </Container>
   );
 };

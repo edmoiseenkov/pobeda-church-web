@@ -19,13 +19,26 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@app": ["src/app"],
-      "@app/components": ["src/app/components"],
-      "@app/components/strapi": ["src/app/components/strapi"],
-      "@app/core/*": ["src/app/core/*"],
-      "@app/pages/*": ["src/app/pages/*"]
-    }
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@app": [
+        "src/app"
+      ],
+      "@app/components": [
+        "src/app/components"
+      ],
+      "@app/components/strapi": [
+        "src/app/components/strapi"
+      ],
+      "@app/core/*": [
+        "src/app/core/*"
+      ],
+      "@app/pages/*": [
+        "src/app/pages/*"
+      ]
+    },
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
