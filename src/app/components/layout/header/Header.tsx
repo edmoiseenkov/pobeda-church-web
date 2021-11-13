@@ -65,7 +65,7 @@ export const Header = () => {
           flexDir={'column'}
         >
           {(settings.menu || []).map((item, i) => (
-            <Link key={i} href={item.link.link} py={'10px'}>{item.name}</Link>
+            <Link key={i} href={getMenuItemLink(item)} py={'10px'}>{item.name}</Link>
           ))}
         </MenuList>
       </Menu>
