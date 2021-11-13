@@ -1,7 +1,7 @@
 import { Container } from '@chakra-ui/react';
 import dynamic from 'next/dynamic'
 
-const Embed = dynamic(() => import('react-embed'), { ssr: false });
+const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
 import { IVideo } from '@app/core/strapi';
 
@@ -21,7 +21,7 @@ export const Video = ({ url }: IVideoProps) => {
         }
       }}
     >
-      <Embed url={url} />
+      <ReactPlayer url={url} width={'100%'} />
     </Container>
   );
 };
