@@ -16,6 +16,7 @@ module.exports = {
     ]
   },
   publicRuntimeConfig: {
+    appDomain: process.env.APP_DOMAIN,
     strapiApi: process.env.NEXT_PUBLIC_STRAPI_API_URL,
   },
   devIndicators: {

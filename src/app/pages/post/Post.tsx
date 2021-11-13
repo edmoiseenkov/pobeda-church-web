@@ -1,8 +1,8 @@
 import { Box, Container, Flex, Heading, useMediaQuery } from '@chakra-ui/react';
 import axios from 'axios';
 import React from 'react';
-import Head from 'next/head';
 
+import { HtmlHead } from '@app/components';
 import { IPost, PostType } from '@app/core/strapi';
 import { getPageProps } from '@app/core/utils';
 import { StrapiDynamicZoneMap } from '@app/core/constants';
@@ -34,10 +34,7 @@ export const Post = (props: IPost) => {
 
   return (
     <Box>
-      <Head>
-        <title>{props.title} - Церковь "Победа" г. Днепр</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <HtmlHead title={props.title} seo={props.seo} />
 
       <Flex
         alignItems={'end'}

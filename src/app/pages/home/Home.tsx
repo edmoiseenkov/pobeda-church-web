@@ -2,12 +2,13 @@ import { Box } from '@chakra-ui/react';
 import axios from 'axios';
 import Head from 'next/head';
 
-import { Section } from '@app/components';
+import { HtmlHead, Section } from '@app/components';
 import { getPageProps } from '@app/core/utils';
 import { IHomePage } from '@app/core/strapi';
 
 import { AskQuestion } from './components';
 import { sectionColors } from './constants';
+import React from 'react';
 
 export const getStaticProps = getPageProps<IHomePage>(async () => {
   try {
@@ -21,11 +22,7 @@ export const getStaticProps = getPageProps<IHomePage>(async () => {
 export const Home = (props: IHomePage) => {
   return (
     <Box>
-      {/*TODO: move Head to layout*/}
-      <Head>
-        <title>Церковь "Победа" г. Днепр</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <HtmlHead seo={props.seo} />
 
       {/*<PageIntro />*/}
       {/*<BlackMenu menu={settings.menu} />*/}
