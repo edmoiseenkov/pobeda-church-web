@@ -47,7 +47,7 @@ export const HtmlHead = (
       <meta property="og:image" content={seo.image.url} />
       <meta property="og:url" content={publicRuntimeConfig.appDomain + router.asPath} />
 
-      {children && {...children}}
+      {children}
     </Head>
   );
 }

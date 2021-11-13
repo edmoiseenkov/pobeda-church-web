@@ -9,6 +9,9 @@ export interface IButton {
   link: string;
   configs?: Partial<{
     size: ThemeSizes;
+    modal?: {
+      props: any;
+    };
   }>;
   style: ButtonStyle;
   openInNewWindow: boolean;

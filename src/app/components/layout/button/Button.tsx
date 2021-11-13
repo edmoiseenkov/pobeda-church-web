@@ -1,11 +1,13 @@
 import { Button as ChakraButton } from '@chakra-ui/react';
+import { SystemStyleObject } from '@chakra-ui/styled-system';
 import { useCallback, useMemo } from 'react';
 
+import { Modal } from '@app/core/enums';
+import { useModal } from '@app/core/providers';
 import { IButton, ButtonIconPosition, ButtonStyle } from '@app/core/strapi';
 import { ThemeSizes } from '@app/core/theme';
 
 import { buttonIconsMap } from './constants';
-import { SystemStyleObject } from '@chakra-ui/styled-system';
 
 export interface IButtonProps extends IButton {
   sx?: SystemStyleObject;
@@ -23,14 +25,15 @@ export const Button = (
     sx,
   }: IButtonProps
 ) => {
+  const modal = useModal();
+
   const Icon = useMemo(() => buttonIconsMap[icon], [icon]);
 
   const handleClick = useCallback((e) => {
     if (link.substr(0, 7) === '#modal-') {
       e.preventDefault();
-      const modalName = link.substr(7);
-      // TODO: provide possibility to open modal
-      console.log(`Open modal with name: ${modalName}`);
+      const modalName = link.substr(7) as Modal;
+      modal.open(modalName, configs?.modal?.props);
     }
   }, [link]);
 
