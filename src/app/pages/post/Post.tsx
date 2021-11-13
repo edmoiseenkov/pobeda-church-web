@@ -10,11 +10,11 @@ import { breakpoints } from '@app/core/theme/constants';
 
 export function getStaticPathsPostsCreator(postType: PostType) {
   return async () => {
-    const { data: posts } = await axios.get(`/posts?type=${postType}`)
+    const { data: posts } = await axios.get(`/posts?type=${postType}`);
 
     const paths = posts.map((post) => ({
       params: { slug: post.slug },
-    }))
+    }));
 
     return { paths, fallback: false }
   }
@@ -22,8 +22,11 @@ export function getStaticPathsPostsCreator(postType: PostType) {
 
 export const getStaticProps = getPageProps<{}>(async ({ params }) => {
   try {
-    const { data: posts } = await axios.get(`/posts?slug=${params.slug}`);
-    return { props: posts[0] };
+    const response = await axios.get(`/posts?slug=${params.slug}`);
+
+    if (response?.data) {
+      return { props: response.data[0] };
+    }
   } catch (err) {}
 
   return { props: {} };
