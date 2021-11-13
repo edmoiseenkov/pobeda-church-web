@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, useMediaQuery } from '@chakra-ui/react';
 import axios from 'axios';
 import React from 'react';
 import Head from 'next/head';
@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { IPost, PostType } from '@app/core/strapi';
 import { getPageProps } from '@app/core/utils';
 import { StrapiDynamicZoneMap } from '@app/core/constants';
+import { breakpoints } from '@app/core/theme/constants';
 
 export function getStaticPathsPostsCreator(postType: PostType) {
   return async () => {
@@ -28,8 +29,9 @@ export const getStaticProps = getPageProps<{}>(async ({ params }) => {
   return { props: {} };
 })
 
-{/*TODO: fix responsive design*/}
 export const Post = (props: IPost) => {
+  const [isLG] = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+
   return (
     <Box>
       <Head>
@@ -41,11 +43,19 @@ export const Post = (props: IPost) => {
         alignItems={'end'}
         bg={`linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${props.image.url}) center / cover`}
         color={'white'}
-        h={380}
+        h={{ base: 280, lg: 380 }}
         mb={50}
       >
         <Container maxW="container.lg" px={0}>
-          <Heading as={'h1'} size={'4xl'} fontWeight={500} mb={50}>{props.title}</Heading>
+          <Heading
+            as={'h1'}
+            size={isLG ? '4xl' : '2xl'}
+            fontWeight={500}
+            mb={50}
+            p={{ base: '0 20px', lg: '0' }}
+          >
+            {props.title}
+          </Heading>
         </Container>
       </Flex>
 

@@ -1,8 +1,9 @@
-import { Box, Flex } from '@chakra-ui/react';
-import React  from 'react';
+import { Box, Flex, useMediaQuery } from '@chakra-ui/react';
+import React from 'react';
 
-import { ISection } from '@app/core/strapi';
+import { ButtonStyle, ISection } from '@app/core/strapi';
 import { Button } from '@app/components';
+import { breakpoints } from '@app/core/theme/constants';
 
 import { textBlockStyles } from './constants';
 import { SectionFullWidth } from './components';
@@ -19,6 +20,8 @@ export const Section = (
     ...props
   }: ISectionProps
 ) => {
+  const [isLG] = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+
   if (props.isFullWidth) {
     return <SectionFullWidth {...props} />;
   }
@@ -49,7 +52,14 @@ export const Section = (
           sx={textBlockStyles}
         />
 
-        {props.buttons.map((button, i) => (<Button key={i} sx={{ w: 'fit-content' }} {...button} />))}
+        {props.buttons.map((button, i) => (
+          <Button
+            key={i}
+            sx={{ w: 'fit-content' }}
+            {...button}
+            style={isLG ? button.style : ButtonStyle.LIGHT_SOLID }
+          />
+        ))}
       </Flex>
     </Flex>
   );

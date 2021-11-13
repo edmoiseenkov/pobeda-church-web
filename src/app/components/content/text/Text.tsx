@@ -9,13 +9,20 @@ export const Text = (props: IText) => {
         sx={{
           img: {
             marginY: '60px',
-            transform: 'scale(1.1)',
+            transform: {
+              base: 'scale(1)',
+              lg: 'scale(1.1)',
+            },
           },
           p: {
             marginBottom: '20px',
             _last: {
               marginBottom: 0
-            }
+            },
+            padding: {
+              base: '0 20px',
+              lg: '0',
+            },
           },
         }}
       />

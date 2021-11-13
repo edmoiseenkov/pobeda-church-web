@@ -12,10 +12,7 @@ export const Video = ({ url }: IVideoProps) => {
     <Container
       maxW="container.lg"
       sx={{
-        p: {
-          base: '20px',
-          md: '0 20px'
-        },
+        padding: '20px',
         iframe: {
           h: {
             base: 'calc(100vw / 2)',
