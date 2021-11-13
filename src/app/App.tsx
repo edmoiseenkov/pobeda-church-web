@@ -10,9 +10,9 @@ export const App = ({ Component, pageProps: { settings, props } }: AppProps) => 
     <SettingsProvider settings={settings}>
       <Theme>
         <ModalProvider>
-          <Header />
+          {/*<Header />*/}
           <Component {...props} />
-          <Footer />
+          {/*<Footer />*/}
         </ModalProvider>
       </Theme>
     </SettingsProvider>

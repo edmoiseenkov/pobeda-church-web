@@ -1,0 +1,166 @@
+@font-face {
+    font-family: 'icomoon';
+    src: url("/preview/fonts/icomoon/icomoon.eot?4kwkvc");
+    src: url("/preview/fonts/icomoon/icomoon.eot?4kwkvc#iefix") format("embedded-opentype"), url("/preview/fonts/icomoon/icomoon.ttf?4kwkvc") format("truetype"), url("/preview/fonts/icomoon/icomoon.woff?4kwkvc") format("woff"), url("/preview/fonts/icomoon/icomoon.svg?4kwkvc#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-envelope1:before {
+    content: "\E901";
+}
+
+.icon-envelope:before {
+    content: "\E900";
+}
+
+.icon-phone:before {
+    content: "\E942";
+}
+
+.icon-location:before {
+    content: "\E947";
+}
+
+.icon-clock:before {
+    content: "\E94E";
+}
+
+.icon-clock2:before {
+    content: "\E94F";
+}
+
+.icon-facebook:before {
+    content: "\EA90";
+}
+
+.icon-instagram:before {
+    content: "\EA92";
+}
+
+.icon-youtube:before {
+    content: "\EA9D";
+}
+
+.icon-mail_outline:before {
+    content: "\E0E1";
+}
+
+html,
+body {
+    background-color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 200px;
+}
+
+h3,
+h2,
+p {
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.socials {
+    list-style: none;
+    margin: auto;
+    margin-top: 50px;
+    padding: 0;
+    display: table;
+}
+
+.socials li {
+    float: left;
+    margin-right: 10px;
+    line-height: 25px;
+}
+
+.socials li a {
+    background: black;
+    border-radius: 50%;
+    color: white;
+    display: table;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    width: 40px;
+    text-decoration: none;
+}
+
+.socials li a:hover,
+.socials li a:focus {
+    background: #ffe426;
+    text-decoration: none;
+}
+
+.socials li a i {
+    position: relative;
+    top: 2px;
+}
