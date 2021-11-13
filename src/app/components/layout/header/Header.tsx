@@ -1,17 +1,9 @@
-import {
-  Flex,
-  IconButton,
-  Link,
-  List,
-  ListItem,
-  Menu,
-  MenuButton,
-  MenuList
-} from '@chakra-ui/react';
+import { Flex, IconButton, Link, List, ListItem, Menu, MenuButton, MenuList } from '@chakra-ui/react';
 import NextLink from 'next/link'
 
 import { LogoIcon, MenuIcon } from '@assets/icons';
 import { useSettings } from '@app/core/providers';
+import { getMenuItemLink } from '@app/core/utils';
 
 export const Header = () => {
   const settings = useSettings();
@@ -35,7 +27,7 @@ export const Header = () => {
         {(settings.menu || []).map((item, i) => (
           <ListItem key={i} mb={4}>
             <Link
-              href={item.link.link}
+              href={getMenuItemLink(item)}
               sx={{
                 fontSize: 24,
                 fontWeight: 500,

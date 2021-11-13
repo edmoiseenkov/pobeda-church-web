@@ -1,9 +1,10 @@
 import { Box, Button, Flex, Heading, Input, InputGroup, Link, List, ListItem, Text } from '@chakra-ui/react';
 import { useMemo } from 'react';
 
+import { FacebookIcon, InstagramIcon, LogoIcon, TelegramIcon, YoutubeIcon } from '@assets/icons';
 import { useSettings } from '@app/core/providers';
 import { ButtonStyle } from '@app/core/strapi';
-import { FacebookIcon, InstagramIcon, LogoIcon, TelegramIcon, YoutubeIcon } from '@assets/icons';
+import { getMenuItemLink } from '@app/core/utils';
 
 import { secondaryMenu } from './constants';
 
@@ -66,7 +67,7 @@ export const Footer = () => {
           {(settings.menu || []).map((item, i) => (
             <ListItem key={i} mb={4}>
               <Link
-                href={item.link.link}
+                href={getMenuItemLink(item)}
                 sx={{
                   fontSize: 36,
                   fontWeight: 500,
