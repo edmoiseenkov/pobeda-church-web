@@ -44,7 +44,7 @@ export const HtmlHead = (
 
       <meta property="og:title" content={compiledTitle} />
       <meta property="og:description" content={seo.description} />
-      <meta property="og:image" content={seo.image.url} />
+      <meta property="og:image" content={seo.image?.url} />
       <meta property="og:url" content={publicRuntimeConfig.appDomain + router.asPath} />
 
       {children}
