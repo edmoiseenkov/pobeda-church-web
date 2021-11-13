@@ -19,7 +19,7 @@ const baseTitle = 'Церковь "Победа" г. Днепр';
 export const HtmlHead = (
   {
     title,
-    seo,
+    seo = {} as ISEOTags,
     appendTitlePostfix = true,
     children
   }: IHtmlHeadProps
