@@ -1,14 +1,12 @@
 import { Box } from '@chakra-ui/react';
 import axios from 'axios';
-import Head from 'next/head';
+import React from 'react';
 
 import { HtmlHead, Section } from '@app/components';
 import { getPageProps } from '@app/core/utils';
 import { IHomePage } from '@app/core/strapi';
 
 import { AskQuestion } from './components';
-import { sectionColors } from './constants';
-import React from 'react';
 
 export const getStaticProps = getPageProps<IHomePage>(async () => {
   try {
@@ -33,12 +31,7 @@ export const Home = (props: IHomePage) => {
       <AskQuestion />
 
       {(props.sections || []).map((section, i) => (
-        <Section
-          key={i}
-          isRightSide={!(i % 2)}
-          bgColor={sectionColors[(i + 1) % 4]}
-          {...section}
-        />
+        <Section key={i} {...section} />
       ))}
     </Box>
   );

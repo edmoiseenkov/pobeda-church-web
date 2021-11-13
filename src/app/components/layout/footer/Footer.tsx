@@ -33,27 +33,27 @@ export const Footer = () => {
         '--padding-h': '96px',
       }}
     >
-      <Flex
-        alignItems={'center'}
-        borderBottom={'2px solid #2B2B2B'}
-        p={{ base: 15, lg: `var(--padding-v) 0` }}
-        flexDir={{ base: 'column', lg: 'row' }}
-        width={{ base: '100%', lg: `calc(100% - var(--padding-h))` }}
-      >
-        <Heading
-          as={'h4'}
-          fontSize={22}
-          mb={{ base: 15, lg: 0 }}
-          w={{ base: 'auto', lg: '30%' }}
-        >Будте в центре событий</Heading>
+      {/*<Flex*/}
+      {/*  alignItems={'center'}*/}
+      {/*  borderBottom={'2px solid #2B2B2B'}*/}
+      {/*  p={{ base: 15, lg: `var(--padding-v) 0` }}*/}
+      {/*  flexDir={{ base: 'column', lg: 'row' }}*/}
+      {/*  width={{ base: '100%', lg: `calc(100% - var(--padding-h))` }}*/}
+      {/*>*/}
+      {/*  <Heading*/}
+      {/*    as={'h4'}*/}
+      {/*    fontSize={22}*/}
+      {/*    mb={{ base: 15, lg: 0 }}*/}
+      {/*    w={{ base: 'auto', lg: '30%' }}*/}
+      {/*  >Будте в центре событий</Heading>*/}
 
-        <Flex as={'form'} w={{ base: '100%', md: '70%' }}>
-          <InputGroup size={'xxl'}>
-            <Input type="email" placeholder="Отправьте вашу почту" variant={'outlineReversed'} />
-            <Button variant={ButtonStyle.LIGHT_SOLID}>Отправить</Button>
-          </InputGroup>
-        </Flex>
-      </Flex>
+      {/*  <Flex as={'form'} w={{ base: '100%', md: '70%' }}>*/}
+      {/*    <InputGroup size={'xxl'}>*/}
+      {/*      <Input type="email" placeholder="Отправьте вашу почту" variant={'outlineReversed'} />*/}
+      {/*      <Button variant={ButtonStyle.LIGHT_SOLID}>Отправить</Button>*/}
+      {/*    </InputGroup>*/}
+      {/*  </Flex>*/}
+      {/*</Flex>*/}
 
       <Flex
         alignItems={'center'}
