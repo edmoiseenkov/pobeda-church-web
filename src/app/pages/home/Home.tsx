@@ -28,7 +28,7 @@ export const Home = (props: IHomePage) => {
       <Section {...(props.mainSection)} />
       <Section {...props.churchSection}/>
 
-      <AskQuestion />
+      {/*<AskQuestion />*/}
 
       {(props.sections || []).map((section, i) => (
         <Section key={i} {...section} />
