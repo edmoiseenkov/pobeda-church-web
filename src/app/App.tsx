@@ -10,9 +10,9 @@ export const App = ({ Component, pageProps: { settings, props } }: AppProps) => 
     <SettingsProvider settings={settings}>
       <Theme>
         <ModalProvider>
-          <Header />
+          {(Component as any).header !== false && <Header />}
           <Component {...props} />
-          <Footer />
+          {(Component as any).footer !== false && <Footer />}
         </ModalProvider>
       </Theme>
     </SettingsProvider>
